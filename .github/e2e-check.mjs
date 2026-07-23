@@ -54,6 +54,19 @@ for (const [name, url] of targets) {
   console.log(name, "FINAL_STATE", JSON.stringify({ ...state, dragChanged }));
   if (state.canvas !== 1 || state.staticMaps !== 0 || !state.stats?.includes("800,000")) failed = true;
   await page.screenshot({ path: name + ".png", fullPage: true });
+
+  if (name === "public") {
+    await page.locator('.env-button[data-env="Lab-L"]').click();
+    await page.waitForFunction(() => document.querySelector("#loader")?.classList.contains("hidden"), null, { timeout: 30000 });
+    const labL = await page.evaluate(() => ({
+      stats: document.querySelector("#cloudStats")?.textContent,
+      canvas: document.querySelectorAll("#viewer canvas").length,
+      object: document.querySelector("#objectName")?.textContent,
+    }));
+    console.log(name, "LAB_L_STATE", JSON.stringify(labL));
+    if (labL.canvas !== 1 || !labL.stats?.includes("800,000")) failed = true;
+    await page.screenshot({ path: "public-lab-l.png", fullPage: true });
+  }
   await page.close();
 }
 await browser.close();
