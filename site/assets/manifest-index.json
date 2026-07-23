@@ -1,0 +1,1094 @@
+{
+  "version": 25,
+  "environments": {
+    "Lab-S": {
+      "slug": "lab-s",
+      "cloud": {
+        "path": "lab-s-cloud.ply",
+        "framesProcessed": 122,
+        "rawSampleCount": 663649,
+        "pointCount": 142997,
+        "voxelSize": 0.045,
+        "minVoxelHits": 2,
+        "referenceSession": "robot_10",
+        "bounds": {
+          "min": [
+            -6.912200450897217,
+            -1.9627658128738403,
+            -6.8512864112854
+          ],
+          "max": [
+            3.663663148880005,
+            4.076564788818359,
+            4.306967735290527
+          ],
+          "center": [
+            -1.624268651008606,
+            1.0568995475769043,
+            -1.2721593379974365
+          ]
+        },
+        "bytes": 2145204
+      },
+      "memory": {
+        "path": "lab-s-memory.json",
+        "objectCount": 10,
+        "bytes": 59770
+      },
+      "cleanCloud": {
+        "path": "lab-s-cloud-clean.ply",
+        "pointCount": 129008,
+        "sourcePointCount": 142997,
+        "bytes": 3483507,
+        "filter": "statistical_plus_radius",
+        "neighbors": 16,
+        "stdRatio": 1.0,
+        "radiusNeighbors": 4,
+        "radius": 0.09,
+        "normalRadius": 0.15,
+        "normalNeighbors": 36,
+        "pixelStride": 6,
+        "voxelSize": 0.045,
+        "minVoxelHits": 2
+      },
+      "sessionClouds": {
+        "s1": {
+          "path": "scenes/lab-s/s1.ply",
+          "session": 1,
+          "referenceSession": "robot_1",
+          "pointCount": 122198,
+          "bytes": 3299637,
+          "rawSampleCount": 1609203,
+          "voxelizedPointCount": 134708,
+          "statisticalPointCount": 122570,
+          "radiusPointCount": 122198,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.134421348571777,
+              -1.8022700548171997,
+              -5.850699424743652
+            ],
+            "max": [
+              2.994866132736206,
+              3.5202701091766357,
+              3.8728671073913574
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          }
+        },
+        "s2": {
+          "path": "scenes/lab-s/s2.ply",
+          "session": 2,
+          "referenceSession": "robot_2",
+          "pointCount": 140423,
+          "bytes": 3791712,
+          "rawSampleCount": 1634133,
+          "voxelizedPointCount": 153184,
+          "statisticalPointCount": 140775,
+          "radiusPointCount": 140423,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.426325798034668,
+              -2.1813106536865234,
+              -4.627629280090332
+            ],
+            "max": [
+              3.2052834033966064,
+              3.382549285888672,
+              3.9436452388763428
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          }
+        },
+        "s3": {
+          "path": "scenes/lab-s/s3.ply",
+          "session": 3,
+          "referenceSession": "robot_3",
+          "pointCount": 138983,
+          "bytes": 3752832,
+          "rawSampleCount": 1658880,
+          "voxelizedPointCount": 151668,
+          "statisticalPointCount": 139237,
+          "radiusPointCount": 138983,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -5.940247535705566,
+              -1.941835641860962,
+              -4.145862102508545
+            ],
+            "max": [
+              2.9001128673553467,
+              3.2379496097564697,
+              3.910701036453247
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          }
+        },
+        "s4": {
+          "path": "scenes/lab-s/s4.ply",
+          "session": 4,
+          "referenceSession": "robot_4",
+          "pointCount": 180214,
+          "bytes": 4866069,
+          "rawSampleCount": 1953792,
+          "voxelizedPointCount": 197293,
+          "statisticalPointCount": 180545,
+          "radiusPointCount": 180214,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.145007610321045,
+              -1.9801151752471924,
+              -4.497200012207031
+            ],
+            "max": [
+              3.141798973083496,
+              3.456270694732666,
+              4.111427307128906
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          }
+        },
+        "s5": {
+          "path": "scenes/lab-s/s5.ply",
+          "session": 5,
+          "referenceSession": "robot_5",
+          "pointCount": 147053,
+          "bytes": 3970722,
+          "rawSampleCount": 1572864,
+          "voxelizedPointCount": 159763,
+          "statisticalPointCount": 147321,
+          "radiusPointCount": 147053,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -5.964245319366455,
+              -2.151916265487671,
+              -4.295172691345215
+            ],
+            "max": [
+              3.273184299468994,
+              3.4878695011138916,
+              4.317054271697998
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          }
+        },
+        "s6": {
+          "path": "scenes/lab-s/s6.ply",
+          "session": 6,
+          "referenceSession": "robot_6",
+          "pointCount": 136011,
+          "bytes": 3672588,
+          "rawSampleCount": 1622016,
+          "voxelizedPointCount": 148748,
+          "statisticalPointCount": 136640,
+          "radiusPointCount": 136011,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.134106159210205,
+              -1.3720709085464478,
+              -4.505155086517334
+            ],
+            "max": [
+              3.5228071212768555,
+              3.6210198402404785,
+              2.813443660736084
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          }
+        },
+        "s7": {
+          "path": "scenes/lab-s/s7.ply",
+          "session": 7,
+          "referenceSession": "robot_7",
+          "pointCount": 136972,
+          "bytes": 3698535,
+          "rawSampleCount": 1535832,
+          "voxelizedPointCount": 149516,
+          "statisticalPointCount": 137379,
+          "radiusPointCount": 136972,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.141584396362305,
+              -2.0173861980438232,
+              -4.56826639175415
+            ],
+            "max": [
+              3.4729115962982178,
+              3.7538647651672363,
+              3.8327724933624268
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          }
+        },
+        "s8": {
+          "path": "scenes/lab-s/s8.ply",
+          "session": 8,
+          "referenceSession": "robot_8",
+          "pointCount": 132043,
+          "bytes": 3565452,
+          "rawSampleCount": 1572809,
+          "voxelizedPointCount": 143551,
+          "statisticalPointCount": 132345,
+          "radiusPointCount": 132043,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -5.688608646392822,
+              -2.0868470668792725,
+              -4.419602870941162
+            ],
+            "max": [
+              3.372565984725952,
+              3.7753143310546875,
+              3.79911208152771
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          }
+        },
+        "s9": {
+          "path": "scenes/lab-s/s9.ply",
+          "session": 9,
+          "referenceSession": "robot_9",
+          "pointCount": 119601,
+          "bytes": 3229518,
+          "rawSampleCount": 1425323,
+          "voxelizedPointCount": 130954,
+          "statisticalPointCount": 120026,
+          "radiusPointCount": 119601,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.358207702636719,
+              -1.8360376358032227,
+              -4.126217842102051
+            ],
+            "max": [
+              3.346921443939209,
+              3.5255532264709473,
+              4.1137614250183105
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          }
+        },
+        "s10": {
+          "path": "scenes/lab-s/s10.ply",
+          "session": 10,
+          "referenceSession": "robot_10",
+          "pointCount": 146491,
+          "bytes": 3955548,
+          "rawSampleCount": 1499069,
+          "voxelizedPointCount": 160369,
+          "statisticalPointCount": 147015,
+          "radiusPointCount": 146491,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -5.862139701843262,
+              -1.8048526048660278,
+              -4.678839206695557
+            ],
+            "max": [
+              3.4468698501586914,
+              3.703756809234619,
+              3.959019422531128
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          }
+        }
+      },
+      "sessionDenseClouds": {
+        "s1": {
+          "path": "dense-scenes/lab-s/s1.ply",
+          "session": 1,
+          "referenceSession": "robot_1",
+          "pointCount": 196072,
+          "bytes": 5294235,
+          "rawSampleCount": 1609203,
+          "voxelizedPointCount": 134708,
+          "statisticalPointCount": 122570,
+          "radiusPointCount": 122198,
+          "pixelStride": 4,
+          "voxelSize": 0.035,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.134421348571777,
+              -1.8022700548171997,
+              -5.850699424743652
+            ],
+            "max": [
+              2.994866132736206,
+              3.5202701091766357,
+              3.8728671073913574
+            ]
+          },
+          "floorConsolidation": {
+            "applied": false
+          },
+          "sourcePointCount": 122198,
+          "interpolatedPointCount": 73874,
+          "densification": "local tangent-plane midpoint interpolation",
+          "normalAgreement": 0.965,
+          "tangentRatio": 0.16,
+          "distanceRange": [
+            0.04025,
+            0.09275
+          ]
+        }
+      },
+      "gaussian": {
+        "path": "gaussian-surfels/675e22c6f2/trained-corrected-800k-demo-robust.ply",
+        "bytes": 44800442,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "boundingSphere": {
+          "center": [
+            -1.138001799583435,
+            -0.6779544353485107,
+            -0.5100122690200806
+          ],
+          "radius": 5.17808723449707
+        },
+        "alignment": {
+          "method": "dihedral yaw/reflection search followed by tight point-to-plane ICP",
+          "mirrored": true,
+          "yawInit": 120,
+          "fitness10cm": 0.5126662861658691,
+          "rmse10cm": 0.060708252463210544,
+          "fitness15cm": 0.6282653554023796,
+          "rmse15cm": 0.0760873939523932
+        },
+        "bakedTransform": "robust reflected ICP; no manual rotation",
+        "label": "675 Lab-S corrected single-map RGB-D scan",
+        "odometryCorrection": "relocalization jump at frame 1256 corrected into the pre-jump coordinate frame"
+      }
+    },
+    "Lab-L": {
+      "slug": "lab-l",
+      "cloud": {
+        "path": "lab-l-cloud.ply",
+        "framesProcessed": 122,
+        "rawSampleCount": 660446,
+        "pointCount": 128062,
+        "voxelSize": 0.045,
+        "minVoxelHits": 2,
+        "referenceSession": "robot_10",
+        "bounds": {
+          "min": [
+            -6.040435791015625,
+            -2.097133159637451,
+            -9.128996849060059
+          ],
+          "max": [
+            8.082942962646484,
+            4.408525466918945,
+            4.822604656219482
+          ],
+          "center": [
+            1.0212535858154297,
+            1.155696153640747,
+            -2.153196096420288
+          ]
+        },
+        "bytes": 1921179
+      },
+      "memory": {
+        "path": "lab-l-memory.json",
+        "objectCount": 10,
+        "bytes": 57873
+      },
+      "cleanCloud": {
+        "path": "lab-l-cloud-clean.ply",
+        "pointCount": 260846,
+        "sourcePointCount": 296350,
+        "bytes": 7043133,
+        "filter": "statistical_plus_radius",
+        "neighbors": 16,
+        "stdRatio": 1.0,
+        "radiusNeighbors": 4,
+        "radius": 0.09,
+        "normalRadius": 0.15,
+        "normalNeighbors": 36,
+        "pixelStride": 4,
+        "voxelSize": 0.035,
+        "minVoxelHits": 2,
+        "floorConsolidation": {
+          "normal": [
+            -0.05866936991277014,
+            0.9437745685967922,
+            0.3253420795162801
+          ],
+          "planeD": -0.59352707,
+          "distanceWindow": [
+            -0.12,
+            0.14
+          ],
+          "targetOffset": 0.02628181526821627,
+          "inputFloorPoints": 26237,
+          "outputFloorPoints": 17347,
+          "voxelSize": 0.035
+        }
+      },
+      "denseCloud": {
+        "path": "lab-l-cloud-dense.ply",
+        "framesProcessed": 122,
+        "rawSampleCount": 1491722,
+        "pointCount": 296350,
+        "voxelSize": 0.035,
+        "minVoxelHits": 2,
+        "referenceSession": "robot_10",
+        "bounds": {
+          "min": [
+            -6.665151596069336,
+            -2.2122650146484375,
+            -9.605440139770508
+          ],
+          "max": [
+            8.698043823242188,
+            4.49479341506958,
+            5.398309707641602
+          ],
+          "center": [
+            1.0164461135864258,
+            1.1412642002105713,
+            -2.103565216064453
+          ]
+        },
+        "bytes": 4445499
+      },
+      "sessionClouds": {
+        "s1": {
+          "path": "scenes/lab-l/s1.ply",
+          "session": 1,
+          "referenceSession": "robot_1",
+          "pointCount": 262975,
+          "bytes": 7100616,
+          "rawSampleCount": 6500591,
+          "voxelizedPointCount": 304487,
+          "statisticalPointCount": 272716,
+          "radiusPointCount": 271412,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -5.413241386413574,
+              -1.6337952613830566,
+              -8.424660682678223
+            ],
+            "max": [
+              7.396711349487305,
+              3.791994094848633,
+              4.274530410766602
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 27607,
+            "outputFloorPoints": 19170,
+            "targetOffset": -0.003945397114622051,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          }
+        },
+        "s2": {
+          "path": "scenes/lab-l/s2.ply",
+          "session": 2,
+          "referenceSession": "robot_2",
+          "pointCount": 459394,
+          "bytes": 12403929,
+          "rawSampleCount": 8948779,
+          "voxelizedPointCount": 531570,
+          "statisticalPointCount": 476247,
+          "radiusPointCount": 475095,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.053038120269775,
+              -2.140782356262207,
+              -9.135505676269531
+            ],
+            "max": [
+              7.778511047363281,
+              4.496469974517822,
+              4.385534763336182
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 44167,
+            "outputFloorPoints": 28466,
+            "targetOffset": 0.024903242848675733,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          }
+        },
+        "s3": {
+          "path": "scenes/lab-l/s3.ply",
+          "session": 3,
+          "referenceSession": "robot_3",
+          "pointCount": 221807,
+          "bytes": 5989080,
+          "rawSampleCount": 6017271,
+          "voxelizedPointCount": 258076,
+          "statisticalPointCount": 231268,
+          "radiusPointCount": 229890,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.018937587738037,
+              -1.7292841672897339,
+              -8.109665870666504
+            ],
+            "max": [
+              7.642555236816406,
+              4.248636722564697,
+              4.24327278137207
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 25922,
+            "outputFloorPoints": 17839,
+            "targetOffset": 0.003200535365895485,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          }
+        },
+        "s4": {
+          "path": "scenes/lab-l/s4.ply",
+          "session": 4,
+          "referenceSession": "robot_4",
+          "pointCount": 193546,
+          "bytes": 5226033,
+          "rawSampleCount": 5618716,
+          "voxelizedPointCount": 224520,
+          "statisticalPointCount": 202288,
+          "radiusPointCount": 201164,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -5.97992467880249,
+              -1.7760875225067139,
+              -8.59540843963623
+            ],
+            "max": [
+              7.165274620056152,
+              4.186281204223633,
+              4.036947250366211
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 23990,
+            "outputFloorPoints": 16372,
+            "targetOffset": 0.007317402036358556,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          }
+        },
+        "s5": {
+          "path": "scenes/lab-l/s5.ply",
+          "session": 5,
+          "referenceSession": "robot_5",
+          "pointCount": 258764,
+          "bytes": 6986919,
+          "rawSampleCount": 6118763,
+          "voxelizedPointCount": 294569,
+          "statisticalPointCount": 264285,
+          "radiusPointCount": 263758,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -5.087674617767334,
+              -1.5731148719787598,
+              -8.073101043701172
+            ],
+            "max": [
+              6.620584011077881,
+              3.8297476768493652,
+              3.6435608863830566
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 18511,
+            "outputFloorPoints": 13517,
+            "targetOffset": -0.015906352982381078,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          }
+        },
+        "s6": {
+          "path": "scenes/lab-l/s6.ply",
+          "session": 6,
+          "referenceSession": "robot_6",
+          "pointCount": 262650,
+          "bytes": 7091841,
+          "rawSampleCount": 6171846,
+          "voxelizedPointCount": 306508,
+          "statisticalPointCount": 275411,
+          "radiusPointCount": 272725,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.530300140380859,
+              -1.8464834690093994,
+              -9.094562530517578
+            ],
+            "max": [
+              7.7810869216918945,
+              4.299198150634766,
+              4.468090057373047
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 29835,
+            "outputFloorPoints": 19760,
+            "targetOffset": 0.037458694905440626,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          }
+        },
+        "s7": {
+          "path": "scenes/lab-l/s7.ply",
+          "session": 7,
+          "referenceSession": "robot_7",
+          "pointCount": 304679,
+          "bytes": 8226624,
+          "rawSampleCount": 6479628,
+          "voxelizedPointCount": 349535,
+          "statisticalPointCount": 314222,
+          "radiusPointCount": 312307,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.201117515563965,
+              -2.2402710914611816,
+              -9.82818603515625
+            ],
+            "max": [
+              8.14350700378418,
+              4.388158798217773,
+              4.336946487426758
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 23478,
+            "outputFloorPoints": 15850,
+            "targetOffset": 0.012831066514638612,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          }
+        },
+        "s8": {
+          "path": "scenes/lab-l/s8.ply",
+          "session": 8,
+          "referenceSession": "robot_8",
+          "pointCount": 290598,
+          "bytes": 7846437,
+          "rawSampleCount": 6468018,
+          "voxelizedPointCount": 335900,
+          "statisticalPointCount": 302784,
+          "radiusPointCount": 300297,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -6.643353462219238,
+              -2.1987805366516113,
+              -8.653867721557617
+            ],
+            "max": [
+              7.908799171447754,
+              4.397519111633301,
+              4.5473222732543945
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 28990,
+            "outputFloorPoints": 19291,
+            "targetOffset": 0.027913080859494843,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          }
+        },
+        "s9": {
+          "path": "scenes/lab-l/s9.ply",
+          "session": 9,
+          "referenceSession": "robot_9",
+          "pointCount": 242373,
+          "bytes": 6544362,
+          "rawSampleCount": 6174498,
+          "voxelizedPointCount": 280544,
+          "statisticalPointCount": 251332,
+          "radiusPointCount": 249749,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -5.625336647033691,
+              -1.6574890613555908,
+              -8.954924583435059
+            ],
+            "max": [
+              7.6920928955078125,
+              3.892608642578125,
+              3.945465564727783
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 24759,
+            "outputFloorPoints": 17383,
+            "targetOffset": -0.023338305596435904,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          }
+        },
+        "s10": {
+          "path": "scenes/lab-l/s10.ply",
+          "session": 10,
+          "referenceSession": "robot_10",
+          "pointCount": 247819,
+          "bytes": 6691404,
+          "rawSampleCount": 5966945,
+          "voxelizedPointCount": 289625,
+          "statisticalPointCount": 260355,
+          "radiusPointCount": 257136,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -5.621018886566162,
+              -2.028113603591919,
+              -8.772275924682617
+            ],
+            "max": [
+              7.765422821044922,
+              4.367291450500488,
+              4.269357681274414
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 29101,
+            "outputFloorPoints": 19784,
+            "targetOffset": 0.011804773820278669,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          }
+        }
+      },
+      "sessionDenseClouds": {
+        "s1": {
+          "path": "dense-scenes/lab-l/s1.ply",
+          "session": 1,
+          "referenceSession": "robot_1",
+          "pointCount": 411595,
+          "bytes": 11113356,
+          "rawSampleCount": 6500591,
+          "voxelizedPointCount": 304487,
+          "statisticalPointCount": 272716,
+          "radiusPointCount": 271412,
+          "pixelStride": 2,
+          "voxelSize": 0.03,
+          "minVoxelHits": 1,
+          "minFrameSupport": 2,
+          "statisticalNeighbors": 16,
+          "stdRatio": 1.0,
+          "radiusNeighbors": 4,
+          "radius": 0.09,
+          "bounds": {
+            "min": [
+              -5.413241386413574,
+              -1.6337952613830566,
+              -8.424660682678223
+            ],
+            "max": [
+              7.396711349487305,
+              3.791994094848633,
+              4.274530410766602
+            ]
+          },
+          "floorConsolidation": {
+            "applied": true,
+            "inputFloorPoints": 27607,
+            "outputFloorPoints": 19170,
+            "targetOffset": -0.003945397114622051,
+            "normal": [
+              -0.05866936991277014,
+              0.9437745685967922,
+              0.3253420795162801
+            ],
+            "planeD": -0.59352707
+          },
+          "sourcePointCount": 262975,
+          "interpolatedPointCount": 148620,
+          "densification": "local tangent-plane midpoint interpolation",
+          "normalAgreement": 0.965,
+          "tangentRatio": 0.16,
+          "distanceRange": [
+            0.034499999999999996,
+            0.0795
+          ]
+        }
+      },
+      "gaussian": {
+        "path": "gaussian-surfels/5b0930992b/trained-800k-demo-robust.ply",
+        "pointCount": 800000,
+        "bytes": 44800435,
+        "source": "/app/5b0930992b",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "alignment": {
+          "method": "dihedral yaw/reflection search followed by tight point-to-plane ICP",
+          "mirrored": true,
+          "yawInit": 150,
+          "fitness10cm": 0.33360224418327494,
+          "rmse10cm": 0.06340097478607215,
+          "fitness15cm": 0.45459379182633247,
+          "rmse15cm": 0.08389297044279727
+        },
+        "boundingSphere": {
+          "center": [
+            0.9276323318481445,
+            -1.0626593828201294,
+            -2.5998964309692383
+          ],
+          "radius": 7.90847110748291
+        },
+        "bakedTransform": "robust reflected ICP; no manual rotation",
+        "label": "5b Lab-L RGB-D scan"
+      }
+    }
+  }
+}

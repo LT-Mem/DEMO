@@ -1,0 +1,2045 @@
+{
+  "environment": "Lab-L",
+  "sourceCheckpoint": "eval/output/fair_rerun/qwen25_3b_local_20260716/checkpoint_ours_lab_l.json",
+  "coordinateFrame": "global/world; identical to transformed point cloud",
+  "confidenceAvailable": false,
+  "sessions": [
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10"
+  ],
+  "objects": {
+    "brown basket": {
+      "name": "brown basket",
+      "sessions": {
+        "s1": {
+          "present": true,
+          "position": [
+            1.263424,
+            0.504341,
+            0.4001
+          ],
+          "locationToken": "L0",
+          "event": "APPEAR",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/brown-basket/s1.webp",
+          "observationConfidence": 0.985263,
+          "observationFrame": 118,
+          "objectCloud": "objects/lab-l/brown-basket/s1.ply",
+          "objectPointCount": 10663
+        },
+        "s2": {
+          "present": true,
+          "position": [
+            1.155397,
+            0.582854,
+            0.289982
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/brown-basket/s2.webp",
+          "observationConfidence": 0.977739,
+          "observationFrame": 22,
+          "objectCloud": "objects/lab-l/brown-basket/s2.ply",
+          "objectPointCount": 3821
+        },
+        "s3": {
+          "present": true,
+          "position": [
+            -2.309622,
+            0.969138,
+            -0.951185
+          ],
+          "locationToken": "L1",
+          "event": "MOVE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/brown-basket/s3.webp",
+          "observationConfidence": 0.97189,
+          "observationFrame": 61,
+          "objectCloud": "objects/lab-l/brown-basket/s3.ply",
+          "objectPointCount": 4406
+        },
+        "s4": {
+          "present": true,
+          "position": [
+            -2.15551,
+            1.030106,
+            -1.439808
+          ],
+          "locationToken": "L1",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/brown-basket/s4.webp",
+          "observationConfidence": 0.953772,
+          "observationFrame": 33,
+          "objectCloud": "objects/lab-l/brown-basket/s4.ply",
+          "objectPointCount": 1600
+        },
+        "s5": {
+          "present": true,
+          "position": [
+            -1.969966,
+            0.892658,
+            -1.355691
+          ],
+          "locationToken": "L1",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/brown-basket/s5.webp",
+          "observationConfidence": 0.976396,
+          "observationFrame": 87,
+          "objectCloud": "objects/lab-l/brown-basket/s5.ply",
+          "objectPointCount": 6813
+        },
+        "s6": {
+          "present": true,
+          "position": [
+            -1.808908,
+            1.070443,
+            0.041481
+          ],
+          "locationToken": "L3",
+          "event": "MOVE",
+          "volatility": 0.996109,
+          "observationImage": "observations/lab-l/brown-basket/s6.webp",
+          "observationConfidence": 0.974707,
+          "observationFrame": 53,
+          "objectCloud": "objects/lab-l/brown-basket/s6.ply",
+          "objectPointCount": 3923
+        },
+        "s7": {
+          "present": true,
+          "position": [
+            -3.711495,
+            1.057462,
+            -0.810736
+          ],
+          "locationToken": "L4",
+          "event": "MOVE",
+          "volatility": 0.999985,
+          "observationImage": "observations/lab-l/brown-basket/s7.webp",
+          "observationConfidence": 0.973499,
+          "observationFrame": 55,
+          "objectCloud": "objects/lab-l/brown-basket/s7.ply",
+          "objectPointCount": 6279
+        },
+        "s8": {
+          "present": true,
+          "position": [
+            -2.102772,
+            0.933673,
+            -0.954601
+          ],
+          "locationToken": "L4",
+          "event": "NONE",
+          "volatility": 0.999985,
+          "observationImage": "observations/lab-l/brown-basket/s8.webp",
+          "observationConfidence": 0.977485,
+          "observationFrame": 56,
+          "objectCloud": "objects/lab-l/brown-basket/s8.ply",
+          "objectPointCount": 10121
+        },
+        "s9": {
+          "present": true,
+          "position": [
+            -2.212924,
+            0.87162,
+            -1.092311
+          ],
+          "locationToken": "L4",
+          "event": "NONE",
+          "volatility": 0.999985,
+          "observationImage": "observations/lab-l/brown-basket/s9.webp",
+          "observationConfidence": 0.977299,
+          "observationFrame": 58,
+          "objectCloud": "objects/lab-l/brown-basket/s9.ply",
+          "objectPointCount": 6031
+        },
+        "s10": {
+          "present": true,
+          "position": [
+            1.449039,
+            0.673105,
+            -0.004748
+          ],
+          "locationToken": "L0",
+          "event": "MOVE",
+          "volatility": 1.0,
+          "observationImage": "observations/lab-l/brown-basket/s10.webp",
+          "observationConfidence": 0.977534,
+          "observationFrame": 14,
+          "objectCloud": "objects/lab-l/brown-basket/s10.ply",
+          "objectPointCount": 4240
+        }
+      },
+      "regions": [
+        {
+          "loc_token": "L0",
+          "centroid": [
+            1.2094104540914636,
+            0.5435976910717755,
+            0.34504076265501016
+          ]
+        },
+        {
+          "loc_token": "L1",
+          "centroid": [
+            -2.2084390898916735,
+            0.9248102340747403,
+            -0.9993655214050418
+          ]
+        },
+        {
+          "loc_token": "L2",
+          "centroid": [
+            -2.062738299650707,
+            0.9613820669719035,
+            -1.3977492426912579
+          ]
+        },
+        {
+          "loc_token": "L3",
+          "centroid": [
+            -1.8089084782488187,
+            1.0704434456334193,
+            0.04148140541166303
+          ]
+        },
+        {
+          "loc_token": "L4",
+          "centroid": [
+            -3.7114947139028938,
+            1.05746227818926,
+            -0.8107360623471221
+          ]
+        },
+        {
+          "loc_token": "L5",
+          "centroid": [
+            1.4490385628453777,
+            0.6731048495313118,
+            -0.004748319931625569
+          ]
+        }
+      ],
+      "observedSessions": 10,
+      "lastObservedSession": 10,
+      "moveCount": 4,
+      "changeCount": 5,
+      "finalVolatility": 1.0
+    },
+    "green chair": {
+      "name": "green chair",
+      "sessions": {
+        "s1": {
+          "present": true,
+          "position": [
+            2.773727,
+            0.841181,
+            0.153088
+          ],
+          "locationToken": "L0",
+          "event": "APPEAR",
+          "volatility": 0.4,
+          "observationImage": "observations/lab-l/green-chair/s1.webp",
+          "observationConfidence": 0.967858,
+          "observationFrame": 121,
+          "objectCloud": "objects/lab-l/green-chair/s1.ply",
+          "objectPointCount": 15483
+        },
+        "s2": {
+          "present": true,
+          "position": [
+            2.874328,
+            1.043875,
+            0.045203
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.4,
+          "observationImage": "observations/lab-l/green-chair/s2.webp",
+          "observationConfidence": 0.9597,
+          "observationFrame": 28,
+          "objectCloud": "objects/lab-l/green-chair/s2.ply",
+          "objectPointCount": 14992
+        },
+        "s3": {
+          "present": true,
+          "position": [
+            2.78552,
+            0.807846,
+            0.046272
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.4,
+          "observationImage": "observations/lab-l/green-chair/s3.webp",
+          "observationConfidence": 0.967128,
+          "observationFrame": 43,
+          "objectCloud": "objects/lab-l/green-chair/s3.ply",
+          "objectPointCount": 15231
+        },
+        "s4": {
+          "present": true,
+          "position": [
+            2.312347,
+            0.772917,
+            0.050721
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.4,
+          "observationImage": "observations/lab-l/green-chair/s4.webp",
+          "observationConfidence": 0.968435,
+          "observationFrame": 99,
+          "objectCloud": "objects/lab-l/green-chair/s4.ply",
+          "objectPointCount": 21120
+        },
+        "s5": {
+          "present": true,
+          "position": [
+            -0.95685,
+            1.009254,
+            -1.236187
+          ],
+          "locationToken": "L2",
+          "event": "MOVE",
+          "volatility": 0.307692,
+          "observationImage": "observations/lab-l/green-chair/s5.webp",
+          "observationConfidence": 0.973559,
+          "observationFrame": 89,
+          "objectCloud": "objects/lab-l/green-chair/s5.ply",
+          "objectPointCount": 12938
+        },
+        "s6": {
+          "present": true,
+          "position": [
+            -1.223459,
+            1.264617,
+            -1.549972
+          ],
+          "locationToken": "L2",
+          "event": "NONE",
+          "volatility": 0.307692,
+          "observationImage": "observations/lab-l/green-chair/s6.webp",
+          "observationConfidence": 0.974972,
+          "observationFrame": 47,
+          "objectCloud": "objects/lab-l/green-chair/s6.ply",
+          "objectPointCount": 7133
+        },
+        "s7": {
+          "present": true,
+          "position": [
+            -1.422663,
+            1.383696,
+            -1.426644
+          ],
+          "locationToken": "L2",
+          "event": "NONE",
+          "volatility": 0.307692,
+          "observationImage": "observations/lab-l/green-chair/s7.webp",
+          "observationConfidence": 0.958167,
+          "observationFrame": 49,
+          "objectCloud": "objects/lab-l/green-chair/s7.ply",
+          "objectPointCount": 3129
+        },
+        "s8": {
+          "present": false,
+          "position": null,
+          "locationToken": "ND",
+          "event": "DISAPPEAR",
+          "volatility": 0.307692
+        },
+        "s9": {
+          "present": true,
+          "position": [
+            2.53462,
+            0.86157,
+            0.100604
+          ],
+          "locationToken": "L0",
+          "event": "REAPPEAR",
+          "volatility": 0.164948,
+          "observationImage": "observations/lab-l/green-chair/s9.webp",
+          "observationConfidence": 0.957638,
+          "observationFrame": 16,
+          "objectCloud": "objects/lab-l/green-chair/s9.ply",
+          "objectPointCount": 3862,
+          "sourceEvent": "MOVE"
+        },
+        "s10": {
+          "present": true,
+          "position": [
+            2.955421,
+            0.886449,
+            0.243456
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.164948,
+          "observationImage": "observations/lab-l/green-chair/s10.webp",
+          "observationConfidence": 0.973616,
+          "observationFrame": 7,
+          "objectCloud": "objects/lab-l/green-chair/s10.ply",
+          "objectPointCount": 9916
+        }
+      },
+      "regions": [
+        {
+          "loc_token": "L0",
+          "centroid": [
+            2.7847232372375155,
+            0.8881843560148919,
+            0.11772476462270728
+          ]
+        },
+        {
+          "loc_token": "L1",
+          "centroid": [
+            2.312346626270492,
+            0.7729173770373732,
+            0.05072051514282375
+          ]
+        },
+        {
+          "loc_token": "L2",
+          "centroid": [
+            -0.9568500550132765,
+            1.009253693272201,
+            -1.2361870109602136
+          ]
+        },
+        {
+          "loc_token": "L3",
+          "centroid": [
+            -1.3230608002928297,
+            1.324156425653272,
+            -1.4883076496577516
+          ]
+        }
+      ],
+      "observedSessions": 9,
+      "lastObservedSession": 10,
+      "moveCount": 1,
+      "changeCount": 4,
+      "finalVolatility": 0.164948
+    },
+    "plant with white pot": {
+      "name": "plant with white pot",
+      "sessions": {
+        "s1": {
+          "present": true,
+          "position": [
+            -2.886116,
+            0.975192,
+            -1.744911
+          ],
+          "locationToken": "L0",
+          "event": "APPEAR",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/plant-with-white-pot/s1.webp",
+          "observationConfidence": 0.973365,
+          "observationFrame": 34,
+          "objectCloud": "objects/lab-l/plant-with-white-pot/s1.ply",
+          "objectPointCount": 20794
+        },
+        "s2": {
+          "present": true,
+          "position": [
+            -2.828355,
+            0.969787,
+            -1.678554
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/plant-with-white-pot/s2.webp",
+          "observationConfidence": 0.974539,
+          "observationFrame": 158,
+          "objectCloud": "objects/lab-l/plant-with-white-pot/s2.ply",
+          "objectPointCount": 30000
+        },
+        "s3": {
+          "present": true,
+          "position": [
+            -3.110164,
+            0.887639,
+            -1.663883
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/plant-with-white-pot/s3.webp",
+          "observationConfidence": 0.980123,
+          "observationFrame": 65,
+          "objectCloud": "objects/lab-l/plant-with-white-pot/s3.ply",
+          "objectPointCount": 17472
+        },
+        "s4": {
+          "present": true,
+          "position": [
+            -2.961065,
+            0.97456,
+            -1.786163
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/plant-with-white-pot/s4.webp",
+          "observationConfidence": 0.976645,
+          "observationFrame": 27,
+          "objectCloud": "objects/lab-l/plant-with-white-pot/s4.ply",
+          "objectPointCount": 27331
+        },
+        "s5": {
+          "present": true,
+          "position": [
+            -2.758006,
+            0.869271,
+            -1.764763
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/plant-with-white-pot/s5.webp",
+          "observationConfidence": 0.973967,
+          "observationFrame": 73,
+          "objectCloud": "objects/lab-l/plant-with-white-pot/s5.ply",
+          "objectPointCount": 26942
+        },
+        "s6": {
+          "present": true,
+          "position": [
+            -2.868721,
+            0.978122,
+            -1.74247
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/plant-with-white-pot/s6.webp",
+          "observationConfidence": 0.96205,
+          "observationFrame": 57,
+          "objectCloud": "objects/lab-l/plant-with-white-pot/s6.ply",
+          "objectPointCount": 19000
+        },
+        "s7": {
+          "present": true,
+          "position": [
+            1.380568,
+            0.276622,
+            0.698234
+          ],
+          "locationToken": "L1",
+          "event": "MOVE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/plant-with-white-pot/s7.webp",
+          "observationConfidence": 0.95923,
+          "observationFrame": 1,
+          "objectCloud": "objects/lab-l/plant-with-white-pot/s7.ply",
+          "objectPointCount": 5839
+        },
+        "s8": {
+          "present": true,
+          "position": [
+            1.266817,
+            0.327754,
+            0.527479
+          ],
+          "locationToken": "L1",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/plant-with-white-pot/s8.webp",
+          "observationConfidence": 0.952571,
+          "observationFrame": 12,
+          "objectCloud": "objects/lab-l/plant-with-white-pot/s8.ply",
+          "objectPointCount": 10676
+        },
+        "s9": {
+          "present": true,
+          "position": [
+            1.535968,
+            0.348619,
+            0.29868
+          ],
+          "locationToken": "L1",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/plant-with-white-pot/s9.webp",
+          "observationConfidence": 0.960384,
+          "observationFrame": 16,
+          "objectCloud": "objects/lab-l/plant-with-white-pot/s9.ply",
+          "objectPointCount": 11724
+        },
+        "s10": {
+          "present": true,
+          "position": [
+            1.446872,
+            0.363143,
+            0.484741
+          ],
+          "locationToken": "L1",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/plant-with-white-pot/s10.webp",
+          "observationConfidence": 0.957266,
+          "observationFrame": 18,
+          "objectCloud": "objects/lab-l/plant-with-white-pot/s10.ply",
+          "objectPointCount": 23654
+        }
+      },
+      "regions": [
+        {
+          "loc_token": "L0",
+          "centroid": [
+            -2.9020711858719337,
+            0.9424284925730011,
+            -1.7301240995617906
+          ]
+        },
+        {
+          "loc_token": "L1",
+          "centroid": [
+            1.3647522335842839,
+            0.3225064445503573,
+            0.570151211109473
+          ]
+        },
+        {
+          "loc_token": "L2",
+          "centroid": [
+            1.535968025996905,
+            0.34861936641916347,
+            0.29868015848273743
+          ]
+        }
+      ],
+      "observedSessions": 10,
+      "lastObservedSession": 10,
+      "moveCount": 1,
+      "changeCount": 2,
+      "finalVolatility": 0.941176
+    },
+    "printer": {
+      "name": "printer",
+      "sessions": {
+        "s1": {
+          "present": true,
+          "position": [
+            -1.753724,
+            0.279789,
+            0.498395
+          ],
+          "locationToken": "L0",
+          "event": "APPEAR",
+          "volatility": 0.05,
+          "observationImage": "observations/lab-l/printer/s1.webp",
+          "observationConfidence": 0.979454,
+          "observationFrame": 16,
+          "objectCloud": "objects/lab-l/printer/s1.ply",
+          "objectPointCount": 14116
+        },
+        "s2": {
+          "present": true,
+          "position": [
+            -1.47217,
+            0.307776,
+            0.687929
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.05,
+          "observationImage": "observations/lab-l/printer/s2.webp",
+          "observationConfidence": 0.975799,
+          "observationFrame": 144,
+          "objectCloud": "objects/lab-l/printer/s2.ply",
+          "objectPointCount": 30000
+        },
+        "s3": {
+          "present": true,
+          "position": [
+            -1.575365,
+            0.267035,
+            0.538125
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.05,
+          "observationImage": "observations/lab-l/printer/s3.webp",
+          "observationConfidence": 0.979576,
+          "observationFrame": 50,
+          "objectCloud": "objects/lab-l/printer/s3.ply",
+          "objectPointCount": 19856
+        },
+        "s4": {
+          "present": true,
+          "position": [
+            -1.657711,
+            0.245622,
+            0.542693
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.05,
+          "observationImage": "observations/lab-l/printer/s4.webp",
+          "observationConfidence": 0.983534,
+          "observationFrame": 16,
+          "objectCloud": "objects/lab-l/printer/s4.ply",
+          "objectPointCount": 22569
+        },
+        "s5": {
+          "present": true,
+          "position": [
+            -1.452684,
+            0.246023,
+            0.348351
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.05,
+          "observationImage": "observations/lab-l/printer/s5.webp",
+          "observationConfidence": 0.974805,
+          "observationFrame": 57,
+          "objectCloud": "objects/lab-l/printer/s5.ply",
+          "objectPointCount": 18152
+        },
+        "s6": {
+          "present": true,
+          "position": [
+            -1.751382,
+            0.313964,
+            0.631568
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.05,
+          "observationImage": "observations/lab-l/printer/s6.webp",
+          "observationConfidence": 0.971615,
+          "observationFrame": 53,
+          "objectCloud": "objects/lab-l/printer/s6.ply",
+          "objectPointCount": 26559
+        },
+        "s7": {
+          "present": true,
+          "position": [
+            -1.430295,
+            0.219831,
+            0.779273
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.05,
+          "observationImage": "observations/lab-l/printer/s7.webp",
+          "observationConfidence": 0.981869,
+          "observationFrame": 17,
+          "objectCloud": "objects/lab-l/printer/s7.ply",
+          "objectPointCount": 17700
+        },
+        "s8": {
+          "present": true,
+          "position": [
+            -1.665558,
+            0.269717,
+            0.679229
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.05,
+          "observationImage": "observations/lab-l/printer/s8.webp",
+          "observationConfidence": 0.980022,
+          "observationFrame": 52,
+          "objectCloud": "objects/lab-l/printer/s8.ply",
+          "objectPointCount": 21112
+        },
+        "s9": {
+          "present": true,
+          "position": [
+            -0.815124,
+            0.317986,
+            0.475208
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.05,
+          "observationImage": "observations/lab-l/printer/s9.webp",
+          "observationConfidence": 0.972596,
+          "observationFrame": 47,
+          "objectCloud": "objects/lab-l/printer/s9.ply",
+          "objectPointCount": 24257
+        },
+        "s10": {
+          "present": true,
+          "position": [
+            -1.342171,
+            0.286372,
+            0.715035
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.05,
+          "observationImage": "observations/lab-l/printer/s10.webp",
+          "observationConfidence": 0.977328,
+          "observationFrame": 96,
+          "objectCloud": "objects/lab-l/printer/s10.ply",
+          "objectPointCount": 30000
+        }
+      },
+      "regions": [
+        {
+          "loc_token": "L0",
+          "centroid": [
+            -1.6807480089054176,
+            0.275225264603027,
+            0.5780021654523485
+          ]
+        },
+        {
+          "loc_token": "L1",
+          "centroid": [
+            -1.4148786726261395,
+            0.27132635138434924,
+            0.7274122647060045
+          ]
+        },
+        {
+          "loc_token": "L2",
+          "centroid": [
+            -1.4526840670178336,
+            0.24602326303039931,
+            0.34835089146285003
+          ]
+        },
+        {
+          "loc_token": "L3",
+          "centroid": [
+            -0.815123752588757,
+            0.31798635633916733,
+            0.4752082776718302
+          ]
+        }
+      ],
+      "observedSessions": 10,
+      "lastObservedSession": 10,
+      "moveCount": 0,
+      "changeCount": 1,
+      "finalVolatility": 0.05
+    },
+    "robot dog": {
+      "name": "robot dog",
+      "sessions": {
+        "s1": {
+          "present": true,
+          "position": [
+            0.175249,
+            1.644718,
+            -1.959225
+          ],
+          "locationToken": "L0",
+          "event": "APPEAR",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/robot-dog/s1.webp",
+          "observationConfidence": 0.951949,
+          "observationFrame": 51,
+          "objectCloud": "objects/lab-l/robot-dog/s1.ply",
+          "objectPointCount": 7068
+        },
+        "s2": {
+          "present": true,
+          "position": [
+            0.083957,
+            1.807439,
+            -2.402264
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/robot-dog/s2.webp",
+          "observationConfidence": 0.975903,
+          "observationFrame": 136,
+          "objectCloud": "objects/lab-l/robot-dog/s2.ply",
+          "objectPointCount": 12634
+        },
+        "s3": {
+          "present": true,
+          "position": [
+            -0.054874,
+            1.687763,
+            -1.893001
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/robot-dog/s3.webp",
+          "observationConfidence": 0.968038,
+          "observationFrame": 74,
+          "objectCloud": "objects/lab-l/robot-dog/s3.ply",
+          "objectPointCount": 5104
+        },
+        "s4": {
+          "present": true,
+          "position": [
+            0.188893,
+            1.711253,
+            -2.453796
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/robot-dog/s4.webp",
+          "observationConfidence": 0.977979,
+          "observationFrame": 40,
+          "objectCloud": "objects/lab-l/robot-dog/s4.ply",
+          "objectPointCount": 7581
+        },
+        "s5": {
+          "present": true,
+          "position": [
+            -0.008816,
+            1.354645,
+            -1.684993
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/robot-dog/s5.webp",
+          "observationConfidence": 0.96053,
+          "observationFrame": 14,
+          "objectCloud": "objects/lab-l/robot-dog/s5.ply",
+          "objectPointCount": 1180
+        },
+        "s6": {
+          "present": true,
+          "position": [
+            -4.061529,
+            1.666428,
+            -2.322293
+          ],
+          "locationToken": "L3",
+          "event": "MOVE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/robot-dog/s6.webp",
+          "observationConfidence": 0.942355,
+          "observationFrame": 71,
+          "objectCloud": "objects/lab-l/robot-dog/s6.ply",
+          "objectPointCount": 5993
+        },
+        "s7": {
+          "present": true,
+          "position": [
+            -4.158967,
+            1.818598,
+            -2.661082
+          ],
+          "locationToken": "L3",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/robot-dog/s7.webp",
+          "observationConfidence": 0.944821,
+          "observationFrame": 70,
+          "objectCloud": "objects/lab-l/robot-dog/s7.ply",
+          "objectPointCount": 5090
+        },
+        "s8": {
+          "present": true,
+          "position": [
+            0.467925,
+            0.65503,
+            1.673642
+          ],
+          "locationToken": "L5",
+          "event": "MOVE",
+          "volatility": 0.996109,
+          "observationImage": "observations/lab-l/robot-dog/s8.webp",
+          "observationConfidence": 0.978026,
+          "observationFrame": 8,
+          "objectCloud": "objects/lab-l/robot-dog/s8.ply",
+          "objectPointCount": 9838
+        },
+        "s9": {
+          "present": true,
+          "position": [
+            -0.380157,
+            1.510877,
+            -1.934592
+          ],
+          "locationToken": "L2",
+          "event": "MOVE",
+          "volatility": 0.999985,
+          "observationImage": "observations/lab-l/robot-dog/s9.webp",
+          "observationConfidence": 0.968945,
+          "observationFrame": 70,
+          "objectCloud": "objects/lab-l/robot-dog/s9.ply",
+          "objectPointCount": 4410
+        },
+        "s10": {
+          "present": true,
+          "position": [
+            0.238379,
+            1.670512,
+            -1.895238
+          ],
+          "locationToken": "L2",
+          "event": "NONE",
+          "volatility": 0.999985,
+          "observationImage": "observations/lab-l/robot-dog/s10.webp",
+          "observationConfidence": 0.976954,
+          "observationFrame": 90,
+          "objectCloud": "objects/lab-l/robot-dog/s10.ply",
+          "objectPointCount": 5956
+        }
+      },
+      "regions": [
+        {
+          "loc_token": "L0",
+          "centroid": [
+            0.11958471933249655,
+            1.6676642038987761,
+            -1.9158210993195068
+          ]
+        },
+        {
+          "loc_token": "L1",
+          "centroid": [
+            0.13642474289937764,
+            1.7593459166441126,
+            -2.428030139836015
+          ]
+        },
+        {
+          "loc_token": "L2",
+          "centroid": [
+            -0.008815949189530575,
+            1.3546454648755575,
+            -1.6849927612901396
+          ]
+        },
+        {
+          "loc_token": "L3",
+          "centroid": [
+            -4.061528593560586,
+            1.6664279688631805,
+            -2.322292817497898
+          ]
+        },
+        {
+          "loc_token": "L4",
+          "centroid": [
+            -4.158967141481315,
+            1.8185984366473043,
+            -2.6610819898264033
+          ]
+        },
+        {
+          "loc_token": "L5",
+          "centroid": [
+            0.46792489539361765,
+            0.6550297641376168,
+            1.6736424031090849
+          ]
+        },
+        {
+          "loc_token": "L6",
+          "centroid": [
+            -0.3801571343995759,
+            1.5108766486738707,
+            -1.9345917225179041
+          ]
+        }
+      ],
+      "observedSessions": 10,
+      "lastObservedSession": 10,
+      "moveCount": 3,
+      "changeCount": 4,
+      "finalVolatility": 0.999985
+    },
+    "scissor": {
+      "name": "scissor",
+      "sessions": {
+        "s1": {
+          "present": false,
+          "position": null,
+          "locationToken": "ND",
+          "event": "NONE",
+          "volatility": 0.8
+        },
+        "s2": {
+          "present": false,
+          "position": null,
+          "locationToken": "ND",
+          "event": "NONE",
+          "volatility": 0.8
+        },
+        "s3": {
+          "present": true,
+          "position": [
+            1.230057,
+            0.727742,
+            0.181534
+          ],
+          "locationToken": "L0",
+          "event": "APPEAR",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/scissor/s3.webp",
+          "observationConfidence": 0.974756,
+          "observationFrame": 19,
+          "objectCloud": "objects/lab-l/scissor/s3.ply",
+          "objectPointCount": 718
+        },
+        "s4": {
+          "present": true,
+          "position": [
+            1.104281,
+            0.708343,
+            0.100292
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/scissor/s4.webp",
+          "observationConfidence": 0.963938,
+          "observationFrame": 91,
+          "objectCloud": "objects/lab-l/scissor/s4.ply",
+          "objectPointCount": 567
+        },
+        "s5": {
+          "present": true,
+          "position": [
+            0.968459,
+            0.630262,
+            0.107555
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/scissor/s5.webp",
+          "observationConfidence": 0.965836,
+          "observationFrame": 18,
+          "objectCloud": "objects/lab-l/scissor/s5.ply",
+          "objectPointCount": 485
+        },
+        "s6": {
+          "present": true,
+          "position": [
+            4.219778,
+            2.612377,
+            -4.550638
+          ],
+          "locationToken": "L1",
+          "event": "MOVE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/scissor/s6.webp",
+          "observationConfidence": 0.968289,
+          "observationFrame": 122,
+          "objectCloud": "objects/lab-l/scissor/s6.ply",
+          "objectPointCount": 634
+        },
+        "s7": {
+          "present": true,
+          "position": [
+            -2.495986,
+            1.302826,
+            -1.946473
+          ],
+          "locationToken": "L2",
+          "event": "MOVE",
+          "volatility": 0.996109,
+          "observationImage": "observations/lab-l/scissor/s7.webp",
+          "observationConfidence": 0.960758,
+          "observationFrame": 66,
+          "objectCloud": "objects/lab-l/scissor/s7.ply",
+          "objectPointCount": 569
+        },
+        "s8": {
+          "present": true,
+          "position": [
+            -2.416927,
+            1.263823,
+            -1.878044
+          ],
+          "locationToken": "L2",
+          "event": "NONE",
+          "volatility": 0.996109,
+          "observationImage": "observations/lab-l/scissor/s8.webp",
+          "observationConfidence": 0.967947,
+          "observationFrame": 57,
+          "objectCloud": "objects/lab-l/scissor/s8.ply",
+          "objectPointCount": 887
+        },
+        "s9": {
+          "present": true,
+          "position": [
+            -2.560583,
+            1.184017,
+            -1.885211
+          ],
+          "locationToken": "L2",
+          "event": "NONE",
+          "volatility": 0.996109,
+          "observationImage": "observations/lab-l/scissor/s9.webp",
+          "observationConfidence": 0.962991,
+          "observationFrame": 59,
+          "objectCloud": "objects/lab-l/scissor/s9.ply",
+          "objectPointCount": 612
+        },
+        "s10": {
+          "present": true,
+          "position": [
+            3.666798,
+            1.439023,
+            -1.861348
+          ],
+          "locationToken": "L3",
+          "event": "MOVE",
+          "volatility": 0.999985,
+          "observationImage": "observations/lab-l/scissor/s10.webp",
+          "observationConfidence": 0.961927,
+          "observationFrame": 34,
+          "objectCloud": "objects/lab-l/scissor/s10.ply",
+          "objectPointCount": 798
+        }
+      },
+      "regions": [
+        {
+          "loc_token": "L0",
+          "centroid": [
+            1.1009322766664777,
+            0.6887821090146216,
+            0.12979373955697596
+          ]
+        },
+        {
+          "loc_token": "L1",
+          "centroid": [
+            4.219777823339545,
+            2.61237698692192,
+            -4.550638209642756
+          ]
+        },
+        {
+          "loc_token": "L2",
+          "centroid": [
+            -2.491165323486269,
+            1.2502219053864578,
+            -1.9032430181228408
+          ]
+        },
+        {
+          "loc_token": "L3",
+          "centroid": [
+            3.6667982375976207,
+            1.4390230130131008,
+            -1.8613477771282427
+          ]
+        }
+      ],
+      "observedSessions": 8,
+      "lastObservedSession": 10,
+      "moveCount": 3,
+      "changeCount": 4,
+      "finalVolatility": 0.999985
+    },
+    "silver headphone": {
+      "name": "silver headphone",
+      "sessions": {
+        "s1": {
+          "present": true,
+          "position": [
+            0.352885,
+            2.001798,
+            -3.863725
+          ],
+          "locationToken": "L0",
+          "event": "APPEAR",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/silver-headphone/s1.webp",
+          "observationConfidence": 0.905192,
+          "observationFrame": 71,
+          "objectCloud": "objects/lab-l/silver-headphone/s1.ply",
+          "objectPointCount": 1235
+        },
+        "s2": {
+          "present": true,
+          "position": [
+            0.079535,
+            1.88933,
+            -3.583999
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/silver-headphone/s2.webp",
+          "observationConfidence": 0.969872,
+          "observationFrame": 107,
+          "objectCloud": "objects/lab-l/silver-headphone/s2.ply",
+          "objectPointCount": 3220
+        },
+        "s3": {
+          "present": true,
+          "position": [
+            0.260662,
+            1.962331,
+            -3.733063
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/silver-headphone/s3.webp",
+          "observationConfidence": 0.974642,
+          "observationFrame": 92,
+          "objectCloud": "objects/lab-l/silver-headphone/s3.ply",
+          "objectPointCount": 3325
+        },
+        "s4": {
+          "present": true,
+          "position": [
+            0.291752,
+            1.91934,
+            -3.896666
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/silver-headphone/s4.webp",
+          "observationConfidence": 0.966286,
+          "observationFrame": 59,
+          "objectCloud": "objects/lab-l/silver-headphone/s4.ply",
+          "objectPointCount": 3004
+        },
+        "s5": {
+          "present": true,
+          "position": [
+            0.860706,
+            1.786938,
+            -4.648878
+          ],
+          "locationToken": "L2",
+          "event": "MOVE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/silver-headphone/s5.webp",
+          "observationConfidence": 0.962411,
+          "observationFrame": 110,
+          "objectCloud": "objects/lab-l/silver-headphone/s5.ply",
+          "objectPointCount": 2983
+        },
+        "s6": {
+          "present": true,
+          "position": [
+            0.149458,
+            2.019258,
+            -3.843911
+          ],
+          "locationToken": "L2",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/silver-headphone/s6.webp",
+          "observationConfidence": 0.962768,
+          "observationFrame": 101,
+          "objectCloud": "objects/lab-l/silver-headphone/s6.ply",
+          "objectPointCount": 2079
+        },
+        "s7": {
+          "present": true,
+          "position": [
+            0.387721,
+            1.819689,
+            -3.823601
+          ],
+          "locationToken": "L2",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/silver-headphone/s7.webp",
+          "observationConfidence": 0.957,
+          "observationFrame": 104,
+          "objectCloud": "objects/lab-l/silver-headphone/s7.ply",
+          "objectPointCount": 1985
+        },
+        "s8": {
+          "present": true,
+          "position": [
+            -0.034835,
+            1.978983,
+            -3.529302
+          ],
+          "locationToken": "L2",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/silver-headphone/s8.webp",
+          "observationConfidence": 0.964263,
+          "observationFrame": 94,
+          "objectCloud": "objects/lab-l/silver-headphone/s8.ply",
+          "objectPointCount": 2142
+        },
+        "s9": {
+          "present": true,
+          "position": [
+            0.271683,
+            1.955414,
+            -3.823911
+          ],
+          "locationToken": "L2",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/silver-headphone/s9.webp",
+          "observationConfidence": 0.954857,
+          "observationFrame": 92,
+          "objectCloud": "objects/lab-l/silver-headphone/s9.ply",
+          "objectPointCount": 3849
+        },
+        "s10": {
+          "present": true,
+          "position": [
+            0.650382,
+            2.146449,
+            -4.404426
+          ],
+          "locationToken": "L2",
+          "event": "NONE",
+          "volatility": 0.941176,
+          "observationImage": "observations/lab-l/silver-headphone/s10.webp",
+          "observationConfidence": 0.944402,
+          "observationFrame": 69,
+          "objectCloud": "objects/lab-l/silver-headphone/s10.ply",
+          "objectPointCount": 2105
+        }
+      },
+      "regions": [
+        {
+          "loc_token": "L0",
+          "centroid": [
+            0.2856936443539279,
+            1.946305097386669,
+            -3.8308126342030353
+          ]
+        },
+        {
+          "loc_token": "L1",
+          "centroid": [
+            0.02234985506597037,
+            1.9341566444777807,
+            -3.5566504443759515
+          ]
+        },
+        {
+          "loc_token": "L2",
+          "centroid": [
+            0.8607061193113307,
+            1.7869375697065482,
+            -4.648878202575338
+          ]
+        },
+        {
+          "loc_token": "L3",
+          "centroid": [
+            0.6503815391563261,
+            2.146449443571708,
+            -4.4044257375764735
+          ]
+        }
+      ],
+      "observedSessions": 10,
+      "lastObservedSession": 10,
+      "moveCount": 1,
+      "changeCount": 2,
+      "finalVolatility": 0.941176
+    },
+    "sofa": {
+      "name": "sofa",
+      "sessions": {
+        "s1": {
+          "present": true,
+          "position": [
+            -2.924598,
+            0.809157,
+            -0.039624
+          ],
+          "locationToken": "L0",
+          "event": "APPEAR",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/sofa/s1.webp",
+          "observationConfidence": 0.986243,
+          "observationFrame": 15,
+          "objectCloud": "objects/lab-l/sofa/s1.ply",
+          "objectPointCount": 30000
+        },
+        "s2": {
+          "present": true,
+          "position": [
+            -2.825197,
+            0.854276,
+            -0.106271
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/sofa/s2.webp",
+          "observationConfidence": 0.990891,
+          "observationFrame": 145,
+          "objectCloud": "objects/lab-l/sofa/s2.ply",
+          "objectPointCount": 30000
+        },
+        "s3": {
+          "present": true,
+          "position": [
+            -2.797507,
+            0.760952,
+            0.007945
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/sofa/s3.webp",
+          "observationConfidence": 0.987651,
+          "observationFrame": 64,
+          "objectCloud": "objects/lab-l/sofa/s3.ply",
+          "objectPointCount": 30000
+        },
+        "s4": {
+          "present": true,
+          "position": [
+            -3.098135,
+            0.770248,
+            0.098169
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/sofa/s4.webp",
+          "observationConfidence": 0.988727,
+          "observationFrame": 18,
+          "objectCloud": "objects/lab-l/sofa/s4.ply",
+          "objectPointCount": 30000
+        },
+        "s5": {
+          "present": true,
+          "position": [
+            -2.15202,
+            0.617359,
+            0.100714
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/sofa/s5.webp",
+          "observationConfidence": 0.991945,
+          "observationFrame": 62,
+          "objectCloud": "objects/lab-l/sofa/s5.ply",
+          "objectPointCount": 30000
+        },
+        "s6": {
+          "present": true,
+          "position": [
+            -2.817325,
+            0.794481,
+            -0.147505
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/sofa/s6.webp",
+          "observationConfidence": 0.981146,
+          "observationFrame": 52,
+          "objectCloud": "objects/lab-l/sofa/s6.ply",
+          "objectPointCount": 24628
+        },
+        "s7": {
+          "present": true,
+          "position": [
+            -3.053568,
+            0.801343,
+            -0.055691
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/sofa/s7.webp",
+          "observationConfidence": 0.990972,
+          "observationFrame": 52,
+          "objectCloud": "objects/lab-l/sofa/s7.ply",
+          "objectPointCount": 30000
+        },
+        "s8": {
+          "present": true,
+          "position": [
+            -3.108807,
+            0.849072,
+            0.032329
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/sofa/s8.webp",
+          "observationConfidence": 0.985498,
+          "observationFrame": 61,
+          "objectCloud": "objects/lab-l/sofa/s8.ply",
+          "objectPointCount": 30000
+        },
+        "s9": {
+          "present": true,
+          "position": [
+            -2.778586,
+            0.800935,
+            -0.222599
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/sofa/s9.webp",
+          "observationConfidence": 0.990284,
+          "observationFrame": 49,
+          "objectCloud": "objects/lab-l/sofa/s9.ply",
+          "objectPointCount": 30000
+        },
+        "s10": {
+          "present": true,
+          "position": [
+            -2.684235,
+            0.822207,
+            -0.109158
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/sofa/s10.webp",
+          "observationConfidence": 0.980998,
+          "observationFrame": 109,
+          "objectCloud": "objects/lab-l/sofa/s10.ply",
+          "objectPointCount": 17306
+        }
+      },
+      "regions": [
+        {
+          "loc_token": "L0",
+          "centroid": [
+            -2.898661929346562,
+            0.8069634842987745,
+            -0.06026720557435125
+          ]
+        },
+        {
+          "loc_token": "L1",
+          "centroid": [
+            -2.152019844364928,
+            0.6173591036793955,
+            0.10071382478183652
+          ]
+        }
+      ],
+      "observedSessions": 10,
+      "lastObservedSession": 10,
+      "moveCount": 0,
+      "changeCount": 1,
+      "finalVolatility": 0.8
+    },
+    "vacuum": {
+      "name": "vacuum",
+      "sessions": {
+        "s1": {
+          "present": true,
+          "position": [
+            2.347164,
+            0.396535,
+            1.803312
+          ],
+          "locationToken": "L0",
+          "event": "APPEAR",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/vacuum/s1.webp",
+          "observationConfidence": 0.964318,
+          "observationFrame": 5,
+          "objectCloud": "objects/lab-l/vacuum/s1.ply",
+          "objectPointCount": 7696
+        },
+        "s2": {
+          "present": true,
+          "position": [
+            2.34618,
+            0.416034,
+            2.042256
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/vacuum/s2.webp",
+          "observationConfidence": 0.958059,
+          "observationFrame": 5,
+          "objectCloud": "objects/lab-l/vacuum/s2.ply",
+          "objectPointCount": 14129
+        },
+        "s3": {
+          "present": true,
+          "position": [
+            2.439854,
+            0.492337,
+            1.950442
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/vacuum/s3.webp",
+          "observationConfidence": 0.939916,
+          "observationFrame": 1,
+          "objectCloud": "objects/lab-l/vacuum/s3.ply",
+          "objectPointCount": 4723
+        },
+        "s4": {
+          "present": true,
+          "position": [
+            -1.031804,
+            0.760728,
+            0.644011
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/vacuum/s4.webp",
+          "observationConfidence": 0.981406,
+          "observationFrame": 14,
+          "objectCloud": "objects/lab-l/vacuum/s4.ply",
+          "objectPointCount": 25186
+        },
+        "s5": {
+          "present": true,
+          "position": [
+            -0.600748,
+            0.495536,
+            0.795456
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/vacuum/s5.webp",
+          "observationConfidence": 0.978412,
+          "observationFrame": 56,
+          "objectCloud": "objects/lab-l/vacuum/s5.ply",
+          "objectPointCount": 16048
+        },
+        "s6": {
+          "present": true,
+          "position": [
+            -0.90888,
+            0.813644,
+            0.379375
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/vacuum/s6.webp",
+          "observationConfidence": 0.9704,
+          "observationFrame": 52,
+          "objectCloud": "objects/lab-l/vacuum/s6.ply",
+          "objectPointCount": 16407
+        },
+        "s7": {
+          "present": true,
+          "position": [
+            2.302005,
+            0.41358,
+            2.335548
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/vacuum/s7.webp",
+          "observationConfidence": 0.96573,
+          "observationFrame": 7,
+          "objectCloud": "objects/lab-l/vacuum/s7.ply",
+          "objectPointCount": 6320
+        },
+        "s8": {
+          "present": true,
+          "position": [
+            1.640145,
+            0.691646,
+            1.433656
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/vacuum/s8.webp",
+          "observationConfidence": 0.935005,
+          "observationFrame": 0,
+          "objectCloud": "objects/lab-l/vacuum/s8.ply",
+          "objectPointCount": 6383
+        },
+        "s9": {
+          "present": true,
+          "position": [
+            2.367288,
+            0.484624,
+            1.940605
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/vacuum/s9.webp",
+          "observationConfidence": 0.965785,
+          "observationFrame": 0,
+          "objectCloud": "objects/lab-l/vacuum/s9.ply",
+          "objectPointCount": 4646
+        },
+        "s10": {
+          "present": true,
+          "position": [
+            2.277225,
+            0.424239,
+            2.275453
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8,
+          "observationImage": "observations/lab-l/vacuum/s10.webp",
+          "observationConfidence": 0.968453,
+          "observationFrame": 5,
+          "objectCloud": "objects/lab-l/vacuum/s10.ply",
+          "objectPointCount": 6165
+        }
+      },
+      "regions": [
+        {
+          "loc_token": "L0",
+          "centroid": [
+            2.3751213758736522,
+            0.44738253947653756,
+            1.9341538555772855
+          ]
+        },
+        {
+          "loc_token": "L1",
+          "centroid": [
+            -0.9703419190196618,
+            0.7871857638472708,
+            0.5116927368865797
+          ]
+        },
+        {
+          "loc_token": "L2",
+          "centroid": [
+            -0.6007478707590788,
+            0.495535874738911,
+            0.7954555425532934
+          ]
+        },
+        {
+          "loc_token": "L3",
+          "centroid": [
+            2.289615261415803,
+            0.4189095504489741,
+            2.3055007747698735
+          ]
+        },
+        {
+          "loc_token": "L4",
+          "centroid": [
+            1.6401446910881463,
+            0.691646352545068,
+            1.4336556352111842
+          ]
+        }
+      ],
+      "observedSessions": 10,
+      "lastObservedSession": 10,
+      "moveCount": 0,
+      "changeCount": 1,
+      "finalVolatility": 0.8
+    },
+    "white board": {
+      "name": "white board",
+      "sessions": {
+        "s1": {
+          "present": true,
+          "position": [
+            1.869291,
+            0.131376,
+            0.733192
+          ],
+          "locationToken": "L0",
+          "event": "APPEAR",
+          "volatility": 0.8
+        },
+        "s2": {
+          "present": true,
+          "position": [
+            2.534686,
+            0.161513,
+            0.538047
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8
+        },
+        "s3": {
+          "present": true,
+          "position": [
+            2.187683,
+            0.14354,
+            0.764199
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8
+        },
+        "s4": {
+          "present": true,
+          "position": [
+            2.651276,
+            0.268749,
+            0.389534
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8
+        },
+        "s5": {
+          "present": true,
+          "position": [
+            2.045426,
+            0.152067,
+            0.418363
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8
+        },
+        "s6": {
+          "present": true,
+          "position": [
+            2.742837,
+            0.386678,
+            0.247857
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8
+        },
+        "s7": {
+          "present": true,
+          "position": [
+            2.884122,
+            0.213243,
+            0.528663
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8
+        },
+        "s8": {
+          "present": true,
+          "position": [
+            2.377153,
+            0.0539,
+            0.935807
+          ],
+          "locationToken": "L0",
+          "event": "NONE",
+          "volatility": 0.8
+        },
+        "s9": {
+          "present": true,
+          "position": [
+            1.389891,
+            0.790479,
+            -1.504375
+          ],
+          "locationToken": "L6",
+          "event": "MOVE",
+          "volatility": 0.941176
+        },
+        "s10": {
+          "present": true,
+          "position": [
+            1.963652,
+            1.194957,
+            -2.683352
+          ],
+          "locationToken": "L6",
+          "event": "NONE",
+          "volatility": 0.941176
+        }
+      },
+      "regions": [
+        {
+          "loc_token": "L0",
+          "centroid": [
+            1.8692909156907513,
+            0.13137558674154026,
+            0.7331916058880514
+          ]
+        },
+        {
+          "loc_token": "L1",
+          "centroid": [
+            2.5929813042744474,
+            0.2151314066107681,
+            0.4637905658501728
+          ]
+        },
+        {
+          "loc_token": "L2",
+          "centroid": [
+            2.2824180662166405,
+            0.09871999439131214,
+            0.85000331286831
+          ]
+        },
+        {
+          "loc_token": "L3",
+          "centroid": [
+            2.045425630975428,
+            0.15206748757813787,
+            0.4183629934615576
+          ]
+        },
+        {
+          "loc_token": "L4",
+          "centroid": [
+            2.742836509273684,
+            0.3866784467818231,
+            0.2478574862885205
+          ]
+        },
+        {
+          "loc_token": "L5",
+          "centroid": [
+            2.8841221083918454,
+            0.21324320783125905,
+            0.5286630039428022
+          ]
+        },
+        {
+          "loc_token": "L6",
+          "centroid": [
+            1.3898914312202075,
+            0.790478848323155,
+            -1.50437516040458
+          ]
+        },
+        {
+          "loc_token": "L7",
+          "centroid": [
+            1.963651865407217,
+            1.1949571243958048,
+            -2.6833520518630913
+          ]
+        }
+      ],
+      "observedSessions": 10,
+      "lastObservedSession": 10,
+      "moveCount": 1,
+      "changeCount": 2,
+      "finalVolatility": 0.941176
+    }
+  },
+  "observationConfidenceAvailable": true,
+  "observationConfidenceDefinition": "Highest-confidence cached SAM3 detection for the object/session; display evidence only.",
+  "objectCloudDefinition": "Dense SAM3-mask point subset from the displayed observation, transformed by the recorded pose into world coordinates.",
+  "eventDefinition": "The first observation after an explicit DISAPPEAR is REAPPEAR",
+  "reappearanceCorrections": 1
+}
