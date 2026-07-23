@@ -251,10 +251,7 @@ async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = t
       rotation: gaussianConfig.rotation,
       scale: [1, 1, 1],
     });
-    await Promise.race([
-      gaussianLoadPromise,
-      new Promise((_, reject) => window.setTimeout(() => reject(new Error("Gaussian startup exceeded 8 seconds")), 8000)),
-    ]);
+    await gaussianLoadPromise;
     gaussianAssetPath = gaussianConfig.path;
     gaussianLoadPromise = null;
   } else if (gaussianLoadPromise) {
@@ -280,22 +277,15 @@ async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = t
 
 async function loadSessionCloud(session, { fitView = false, showLoader = true } = {}) {
   const config = state.index.environments[state.env];
-  let gaussianFallback = false;
   if (config.gaussian) {
-    try {
-      return await loadGaussianMap(config.gaussian, { fitView, showLoader });
-    } catch (error) {
-      console.warn("Gaussian startup was too slow; opening the compatible map.", error);
-      gaussianFallback = true;
-      if (gaussianCloud) gaussianCloud.visible = false;
-    }
+    return loadGaussianMap(config.gaussian, { fitView, showLoader });
   }
-  el.sceneModeLabel.textContent = gaussianFallback ? "Compatible aligned 3D map" : "Session-aligned point cloud";
+  el.sceneModeLabel.textContent = "Session-aligned point cloud";
   el.densityMode.disabled = false;
   el.pointSmaller.disabled = false;
   el.pointLarger.disabled = false;
-  const denseConfig = gaussianFallback ? null : state.denseCloud ? config.sessionDenseClouds?.[`s${session}`] : null;
-  const cloudConfig = gaussianFallback ? config.cleanCloud : denseConfig || config.sessionClouds?.[`s${session}`] || config.cleanCloud || config.cloud;
+  const denseConfig = state.denseCloud ? config.sessionDenseClouds?.[`s${session}`] : null;
+  const cloudConfig = denseConfig || config.sessionClouds?.[`s${session}`] || config.cleanCloud || config.cloud;
   const token = ++cloudLoadToken;
   if (showLoader) el.loader.classList.remove("hidden");
   const geometry = await new PLYLoader().loadAsync(
