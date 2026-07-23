@@ -319,3 +319,48 @@ h3 { margin-bottom: 0; font-size: 0.92rem; }
 .answer-event-pill.move { color: #1759b5; background: #e1efff; }
 .answer-event-pill.disappear { color: #b93838; background: #ffe6e6; }
 .answer-event-pill.reappear { color: #6840a6; background: #eee5ff; }
+
+.static-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #0b1220;
+}
+.static-paths, .static-label-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.static-paths { pointer-events: none; overflow: visible; }
+.static-trajectory {
+  fill: none;
+  stroke: #ff1645;
+  stroke-width: 0.55;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 1px #680018);
+}
+.static-object-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  max-width: 180px;
+  padding: 5px 9px;
+  border: 2px solid rgba(110,231,221,.85);
+  border-radius: 10px;
+  color: white;
+  background: rgba(7,20,38,.9);
+  font: 700 11px/1.1 Inter, Arial, sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0,0,0,.28);
+}
+.static-object-label.selected {
+  border-color: white;
+  background: rgba(239,91,91,.96);
+  z-index: 2;
+}
+.static-object-label.ghost { opacity: .72; border-style: dashed; }
