@@ -2,7 +2,7 @@ import { chromium } from "playwright";
 
 const targets = [
   ["local", "http://127.0.0.1:8080/"],
-  ["public", "https://lt-mem.github.io/DEMO/interactive/"],
+  ["public", "https://lt-mem.github.io/DEMO/?preview=800k"],
 ];
 
 const browser = await chromium.launch({
@@ -52,6 +52,7 @@ for (const [name, url] of targets) {
     staticMaps: document.querySelectorAll(".static-map").length,
   }));
   console.log(name, "FINAL_STATE", JSON.stringify({ ...state, dragChanged }));
+  if (state.canvas !== 1 || state.staticMaps !== 0 || !state.stats?.includes("800,000")) failed = true;
   await page.screenshot({ path: name + ".png", fullPage: true });
   await page.close();
 }

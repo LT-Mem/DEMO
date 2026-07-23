@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { PLYLoader } from "three/addons/loaders/PLYLoader.js";
-import * as GaussianSplats3D from "@mkkellogg/gaussian-splats-3d";
 
 const EVENT_COLORS = {
   APPEAR: 0x31b36b,
@@ -18,7 +17,7 @@ const state = {
   selectedObject: null,
   session: 1,
   cloudVisible: true,
-  denseCloud: true,
+  denseCloud: false,
   qaEvidence: null,
 };
 
@@ -56,9 +55,7 @@ const trajectoryGroup = new THREE.Group();
 scene.add(markerGroup, trajectoryGroup);
 
 let cloud = null;
-let gaussianCloud = null;
-let gaussianAssetPath = null;
-let gaussianLoadPromise = null;
+let cloudAssetPath = null;
 let objectClouds = [];
 let objectBounds = null;
 let objectLoadToken = 0;
@@ -197,29 +194,8 @@ function removeSceneCloud() {
     cloud.geometry.dispose();
     cloud.material.dispose();
     cloud = null;
+    cloudAssetPath = null;
   }
-  if (gaussianCloud) gaussianCloud.visible = false;
-}
-
-function ensureGaussianCloud() {
-  if (gaussianCloud) return gaussianCloud;
-  gaussianCloud = new GaussianSplats3D.DropInViewer({
-    sharedMemoryForWorkers: false,
-    gpuAcceleratedSort: false,
-    integerBasedSort: true,
-    halfPrecisionCovariancesOnGPU: false,
-    antialiased: false,
-    kernel2DSize: 0.055,
-    sphericalHarmonicsDegree: 0,
-    sceneRevealMode: GaussianSplats3D.SceneRevealMode.Instant,
-    renderMode: GaussianSplats3D.RenderMode.Always,
-    inMemoryCompressionLevel: 1,
-    optimizeSplatData: true,
-    freeIntermediateSplatData: true,
-  });
-  gaussianCloud.visible = false;
-  scene.add(gaussianCloud);
-  return gaussianCloud;
 }
 
 function fitDisplaySphere(center, radius) {
@@ -233,61 +209,22 @@ function fitDisplaySphere(center, radius) {
   fittedView = { center: center.clone(), position: camera.position.clone() };
 }
 
-async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = true } = {}) {
-  const token = ++cloudLoadToken;
-  if (showLoader) el.loader.classList.remove("hidden");
-  const dropIn = ensureGaussianCloud();
-  if (gaussianAssetPath !== gaussianConfig.path) {
-    if (gaussianAssetPath !== null) {
-      await dropIn.removeSplatScene(0, false);
-      gaussianAssetPath = null;
-    }
-    gaussianLoadPromise = dropIn.addSplatScene(`./assets/${gaussianConfig.path}?v=${state.index.version}`, {
-      format: GaussianSplats3D.SceneFormat.Ply,
-      splatAlphaRemovalThreshold: 2,
-      showLoadingUI: false,
-      progressiveLoad: false,
-      position: gaussianConfig.position,
-      rotation: gaussianConfig.rotation,
-      scale: [1, 1, 1],
-    });
-    await gaussianLoadPromise;
-    gaussianAssetPath = gaussianConfig.path;
-    gaussianLoadPromise = null;
-  } else if (gaussianLoadPromise) {
-    await gaussianLoadPromise;
-  }
-  if (token !== cloudLoadToken) return;
-  dropIn.visible = state.cloudVisible;
-  if (fitView || !fittedView) {
-    fitDisplaySphere(
-      new THREE.Vector3().fromArray(gaussianConfig.boundingSphere.center),
-      gaussianConfig.boundingSphere.radius
-    );
-  }
-  el.cloudStats.textContent = `${Number(gaussianConfig.pointCount).toLocaleString()} Gaussian splats · ${(gaussianConfig.bytes / 1048576).toFixed(1)} MiB · ${gaussianConfig.label || "RGB-D scan"}`;
-  el.sceneModeLabel.textContent = "Aligned Gaussian scene";
-  el.densityMode.textContent = "GS";
-  el.densityMode.classList.add("active");
-  el.densityMode.disabled = true;
-  el.pointSmaller.disabled = true;
-  el.pointLarger.disabled = true;
-  if (showLoader) el.loader.classList.add("hidden");
-}
-
 async function loadSessionCloud(session, { fitView = false, showLoader = true } = {}) {
   const config = state.index.environments[state.env];
-  if (config.gaussian) {
-    return loadGaussianMap(config.gaussian, { fitView, showLoader });
-  }
   el.sceneModeLabel.textContent = "Session-aligned point cloud";
   el.densityMode.disabled = false;
   el.pointSmaller.disabled = false;
   el.pointLarger.disabled = false;
   const denseConfig = state.denseCloud ? config.sessionDenseClouds?.[`s${session}`] : null;
-  const cloudConfig = denseConfig || config.sessionClouds?.[`s${session}`] || config.cleanCloud || config.cloud;
+  const cloudConfig = config.previewCloud || denseConfig || config.sessionClouds?.[`s${session}`] || config.cleanCloud || config.cloud;
   const token = ++cloudLoadToken;
   if (showLoader) el.loader.classList.remove("hidden");
+  if (cloud && cloudAssetPath === cloudConfig.path) {
+    cloud.visible = state.cloudVisible;
+    el.cloudStats.textContent = `${Number(cloudConfig.pointCount).toLocaleString()} preview points · ${(cloudConfig.bytes / 1048576).toFixed(1)} MiB`;
+    if (showLoader) el.loader.classList.add("hidden");
+    return;
+  }
   const geometry = await new PLYLoader().loadAsync(
     `./assets/${cloudConfig.path}?v=${state.index.version}`
   );
@@ -297,7 +234,7 @@ async function loadSessionCloud(session, { fitView = false, showLoader = true } 
   }
   geometry.computeBoundingSphere();
   const material = makeSurfaceCloudMaterial(
-    0.030,
+    0.022,
     geometry.hasAttribute("color"),
     geometry.hasAttribute("normal")
   );
@@ -307,13 +244,14 @@ async function loadSessionCloud(session, { fitView = false, showLoader = true } 
     cloud.material.dispose();
   }
   cloud = new THREE.Points(geometry, material);
+  cloudAssetPath = cloudConfig.path;
   // MAST3R/OpenCV global coordinates use a downward-positive Y axis.
   // Flip only for display; stored aligned coordinates remain unchanged.
   cloud.scale.y = -1;
   cloud.visible = state.cloudVisible;
   scene.add(cloud);
   if (fitView || !fittedView) fitCamera(geometry.boundingSphere);
-  el.cloudStats.textContent = `S${session} · ${Number(cloudConfig.pointCount).toLocaleString()} points · ${(cloudConfig.bytes / 1048576).toFixed(1)} MiB${denseConfig ? " · locally densified" : ""}`;
+  el.cloudStats.textContent = `${Number(cloudConfig.pointCount).toLocaleString()} preview points · ${(cloudConfig.bytes / 1048576).toFixed(1)} MiB`;
   el.densityMode.textContent = denseConfig ? "Dense ✓" : "Dense";
   el.densityMode.classList.toggle("active", Boolean(denseConfig));
   if (showLoader) el.loader.classList.add("hidden");
@@ -860,7 +798,6 @@ document.querySelectorAll(".env-button").forEach((button) => {
 el.objectSelect.addEventListener("change", () => selectObject(el.objectSelect.value));
 el.sessionRange.addEventListener("input", () => setSession(Number(el.sessionRange.value)));
 el.densityMode.addEventListener("click", () => {
-  if (state.index.environments[state.env].gaussian) return;
   state.denseCloud = !state.denseCloud;
   loadSessionCloud(state.session, { showLoader: true }).catch(showError);
 });
@@ -875,7 +812,6 @@ el.pointLarger.addEventListener("click", () => {
 el.toggleCloud.addEventListener("click", () => {
   state.cloudVisible = !state.cloudVisible;
   if (cloud) cloud.visible = state.cloudVisible;
-  if (gaussianCloud) gaussianCloud.visible = state.cloudVisible && Boolean(state.index.environments[state.env].gaussian);
   el.toggleCloud.textContent = state.cloudVisible ? "Cloud" : "Show cloud";
 });
 el.resetView.addEventListener("click", () => {
