@@ -268,7 +268,7 @@ async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = t
     });
     await Promise.race([
       gaussianLoadPromise,
-      new Promise((_, reject) => window.setTimeout(() => reject(new Error("3D initialization timed out after 90 seconds")), 90000)),
+      new Promise((_, reject) => window.setTimeout(() => reject(new Error("Gaussian initialization timed out")), 12000)),
     ]);
     gaussianAssetPath = gaussianConfig.path;
     gaussianLoadPromise = null;
@@ -295,15 +295,23 @@ async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = t
 
 async function loadSessionCloud(session, { fitView = false, showLoader = true } = {}) {
   const config = state.index.environments[state.env];
+  let gaussianFallback = false;
   if (config.gaussian) {
-    return loadGaussianMap(config.gaussian, { fitView, showLoader });
+    try {
+      return await loadGaussianMap(config.gaussian, { fitView, showLoader });
+    } catch (error) {
+      console.warn("Gaussian scene unavailable; using point-cloud fallback.", error);
+      gaussianFallback = true;
+      if (gaussianCloud) gaussianCloud.visible = false;
+      el.loader.innerHTML = "<span class="spinner"></span><strong>Opening compatible 3D map…</strong><small>Switching to the fast fallback automatically.</small>";
+    }
   }
-  el.sceneModeLabel.textContent = "Session-aligned point cloud";
+  el.sceneModeLabel.textContent = gaussianFallback ? "Aligned 3D fallback" : "Session-aligned point cloud";
   el.densityMode.disabled = false;
   el.pointSmaller.disabled = false;
   el.pointLarger.disabled = false;
-  const denseConfig = state.denseCloud ? config.sessionDenseClouds?.[`s${session}`] : null;
-  const cloudConfig = denseConfig || config.sessionClouds?.[`s${session}`] || config.cleanCloud || config.cloud;
+  const denseConfig = gaussianFallback ? null : state.denseCloud ? config.sessionDenseClouds?.[`s${session}`] : null;
+  const cloudConfig = gaussianFallback ? config.cleanCloud : denseConfig || config.sessionClouds?.[`s${session}`] || config.cleanCloud || config.cloud;
   const token = ++cloudLoadToken;
   if (showLoader) el.loader.classList.remove("hidden");
   const geometry = await new PLYLoader().loadAsync(
