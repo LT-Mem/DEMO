@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <base href="/DEMO/">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Interactive LT-Mem 3D memory demo" />
+    <title>LT-Mem Demo</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="./styles.css?v=37" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor-v38/three/build/three.module.js",
+          "three/addons/": "./vendor-v38/three/examples/jsm/",
+          "@mkkellogg/gaussian-splats-3d": "./vendor-v38/@mkkellogg/gaussian-splats-3d/build/gaussian-splats-3d.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="demo-header">
+        <div>
+          <p class="eyebrow">Interactive demo</p>
+          <h1>LT-Mem <span>Demo</span></h1>
+          <p class="lede">Explore long-term object memory directly in the aligned 3D scene.</p>
+        </div>
+        <div class="environment-switch" aria-label="Environment">
+          <button class="env-button active" data-env="Lab-S">Lab-S</button>
+          <button class="env-button" data-env="Lab-L">Lab-L</button>
+        </div>
+      </header>
+
+      <section class="demo-grid">
+        <article class="viewer-card">
+          <div class="viewer-toolbar">
+            <div>
+              <span class="status-dot"></span>
+              <strong id="sceneModeLabel">Session-aligned point cloud</strong>
+              <span id="cloudStats" class="muted">Loading…</span>
+            </div>
+            <div class="viewer-actions">
+              <button id="densityMode" class="icon-button" hidden type="button" aria-label="Toggle local densification">Dense</button>
+              <button id="pointSmaller" class="icon-button" hidden type="button" aria-label="Smaller points">Points −</button>
+              <button id="pointLarger" class="icon-button" hidden type="button" aria-label="Larger points">Points +</button>
+              <button id="toggleCloud" class="icon-button" type="button">Cloud</button>
+              <button id="resetView" class="icon-button" type="button">Reset view</button>
+            </div>
+          </div>
+          <div id="viewer" class="viewer" aria-label="Interactive 3D point-cloud viewer">
+            <div id="loader" class="loader-panel">
+              <span class="spinner"></span>
+              <strong>Loading aligned scene</strong>
+              <small>Point cloud and memory states are loaded locally.</small>
+            </div>
+            <div id="mapEvidenceCue" class="map-evidence-cue hidden"></div>
+            <div class="viewer-hint">Drag to orbit · Scroll to zoom · Click a labeled marker</div>
+          </div>
+          <div class="legend" aria-label="3D map legend">
+            <span><i class="legend-trajectory" aria-hidden="true"></i><strong>Trajectory</strong></span>
+            <span>Object locations are shown as labels · click a label to inspect its memory</span>
+          </div>
+        </article>
+
+        <aside class="memory-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Object memory card</p>
+              <h2 id="objectName">Select an object</h2>
+            </div>
+            <select id="objectSelect" aria-label="Object"></select>
+          </div>
+
+          <div id="eventBadge" class="event-badge none">NONE</div>
+
+          <figure id="observationFigure" class="observation-figure hidden">
+            <img id="observationImage" alt="Selected object observation" />
+            <figcaption id="observationCaption">Actual RGB observation</figcaption>
+          </figure>
+
+          <dl class="memory-facts">
+            <div>
+              <dt>State at selected session</dt>
+              <dd id="stateValue">—</dd>
+            </div>
+            <div>
+              <dt>3D location</dt>
+              <dd id="locationValue">—</dd>
+            </div>
+            <div>
+              <dt>Last observed</dt>
+              <dd id="lastObservedValue">—</dd>
+            </div>
+            <div>
+              <dt>Observation confidence</dt>
+              <dd id="confidenceValue">—</dd>
+            </div>
+            <div>
+              <dt>Volatility</dt>
+              <dd id="volatilityValue">—</dd>
+            </div>
+            <div>
+              <dt>Observed in</dt>
+              <dd id="observedCountValue">—</dd>
+            </div>
+          </dl>
+
+          <div class="history-heading">
+            <h3>History</h3>
+            <span>world-coordinate centroids</span>
+          </div>
+          <ol id="historyList" class="history-list"></ol>
+        </aside>
+      </section>
+
+      <section class="timeline-card">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Temporal navigation</p>
+            <h2>Session timeline</h2>
+          </div>
+          <strong id="sessionLabel">Session 1</strong>
+        </div>
+        <input id="sessionRange" type="range" min="1" max="10" step="1" value="1" aria-label="Session" />
+        <div id="sessionTicks" class="session-ticks"></div>
+        <div id="eventTimeline" class="event-timeline"></div>
+      </section>
+
+      <section class="qa-card">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Evidence-backed queries</p>
+            <h2>Ask LT-Mem</h2>
+          </div>
+          <span class="static-label">Deterministic demo · no live LLM</span>
+        </div>
+        <div class="qa-workspace">
+          <div class="question-column">
+            <span class="qa-column-label">Try a question</span>
+            <div id="questionButtons" class="question-buttons"></div>
+          </div>
+          <div class="answer-panel">
+            <div class="answer-icon">✦</div>
+            <div class="answer-content">
+              <div class="answer-heading">
+                <span>LT-Mem answer</span>
+                <span id="answerStatus" class="answer-status">Ready</span>
+              </div>
+              <div id="answerText" class="answer-text">Choose a question to inspect the supporting memory state.</div>
+              <div class="evidence-heading">
+                <strong>Evidence trail</strong>
+                <small>Click an observation to inspect it in 3D</small>
+              </div>
+              <div id="answerEvidence" class="answer-evidence"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <template id="historyItemTemplate">
+      <li>
+        <span class="history-session"></span>
+        <span class="history-event"></span>
+        <span class="history-position"></span>
+      </li>
+    </template>
+
+    <script type="module" src="./app.js?v=42"></script>
+  </body>
+</html>
