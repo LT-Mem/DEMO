@@ -235,7 +235,10 @@ function fitDisplaySphere(center, radius) {
 
 async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = true } = {}) {
   const token = ++cloudLoadToken;
-  if (showLoader) el.loader.classList.remove("hidden");
+  el.loader.classList.remove("hidden");
+  el.loader.innerHTML = "<span class="spinner"></span><strong>Starting 3D map…</strong><small>Preparing the 800k Gaussian scene.</small>";
+  const loaderTitle = el.loader.querySelector("strong");
+  const loaderDetail = el.loader.querySelector("small");
   const dropIn = ensureGaussianCloud();
   if (gaussianAssetPath !== gaussianConfig.path) {
     if (gaussianAssetPath !== null) {
@@ -246,12 +249,27 @@ async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = t
       format: gaussianConfig.format === "ksplat" ? GaussianSplats3D.SceneFormat.KSplat : GaussianSplats3D.SceneFormat.Ply,
       splatAlphaRemovalThreshold: 2,
       showLoadingUI: false,
-      progressiveLoad: false,
+      progressiveLoad: gaussianConfig.format === "ksplat",
+      onProgress: (percent, label, status) => {
+        if (status === 0) {
+          loaderTitle.textContent = "Downloading 3D map · " + Math.round(percent) + "%";
+          loaderDetail.textContent = "19 MB compressed Gaussian scene";
+        } else if (status === 1) {
+          loaderTitle.textContent = "Preparing 800k splats…";
+          loaderDetail.textContent = "Building the first interactive frame";
+        } else {
+          loaderTitle.textContent = "Rendering scene…";
+          loaderDetail.textContent = "Almost ready";
+        }
+      },
       position: gaussianConfig.position,
       rotation: gaussianConfig.rotation,
       scale: [1, 1, 1],
     });
-    await gaussianLoadPromise;
+    await Promise.race([
+      gaussianLoadPromise,
+      new Promise((_, reject) => window.setTimeout(() => reject(new Error("3D initialization timed out after 90 seconds")), 90000)),
+    ]);
     gaussianAssetPath = gaussianConfig.path;
     gaussianLoadPromise = null;
   } else if (gaussianLoadPromise) {
