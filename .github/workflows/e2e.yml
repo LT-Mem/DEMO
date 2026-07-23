@@ -1,0 +1,27 @@
+name: Diagnose live 3D loading
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install playwright@1.55.0
+      - run: npx playwright install --with-deps chromium
+      - name: Start local site
+        run: python3 -m http.server 8080 --directory site >/tmp/ltmem-http.log 2>&1 &
+      - name: Compare local and public rendering
+        run: node .github/e2e-check.mjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ltmem-browser-diagnostics
+          path: |
+            local.png
+            public.png
