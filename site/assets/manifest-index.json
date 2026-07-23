@@ -439,8 +439,8 @@
         }
       },
       "gaussian": {
-        "path": "gaussian-surfels/675e22c6f2/trained-corrected-800k-demo-robust.ply",
-        "bytes": 44800442,
+        "path": "gaussian-surfels/675e22c6f2/trained-corrected-800k-demo-robust.ksplat",
+        "bytes": 19242672,
         "position": [
           0,
           0,
@@ -471,7 +471,8 @@
         },
         "bakedTransform": "robust reflected ICP; no manual rotation",
         "label": "675 Lab-S corrected single-map RGB-D scan",
-        "odometryCorrection": "relocalization jump at frame 1256 corrected into the pre-jump coordinate frame"
+        "odometryCorrection": "relocalization jump at frame 1256 corrected into the pre-jump coordinate frame",
+        "format": "ksplat"
       }
     },
     "Lab-L": {
@@ -1054,9 +1055,9 @@
         }
       },
       "gaussian": {
-        "path": "gaussian-surfels/5b0930992b/trained-800k-demo-robust.ply",
+        "path": "gaussian-surfels/5b0930992b/trained-800k-demo-robust.ksplat",
         "pointCount": 800000,
-        "bytes": 44800435,
+        "bytes": 19242752,
         "source": "/app/5b0930992b",
         "position": [
           0,
@@ -1087,7 +1088,8 @@
           "radius": 7.90847110748291
         },
         "bakedTransform": "robust reflected ICP; no manual rotation",
-        "label": "5b Lab-L RGB-D scan"
+        "label": "5b Lab-L RGB-D scan",
+        "format": "ksplat"
       }
     }
   }

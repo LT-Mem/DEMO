@@ -243,7 +243,7 @@ async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = t
       gaussianAssetPath = null;
     }
     gaussianLoadPromise = dropIn.addSplatScene(`./assets/${gaussianConfig.path}?v=${state.index.version}`, {
-      format: GaussianSplats3D.SceneFormat.Ply,
+      format: gaussianConfig.format === "ksplat" ? GaussianSplats3D.SceneFormat.KSplat : GaussianSplats3D.SceneFormat.Ply,
       splatAlphaRemovalThreshold: 2,
       showLoadingUI: false,
       progressiveLoad: false,
