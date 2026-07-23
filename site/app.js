@@ -235,10 +235,7 @@ function fitDisplaySphere(center, radius) {
 
 async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = true } = {}) {
   const token = ++cloudLoadToken;
-  el.loader.classList.remove("hidden");
-  el.loader.innerHTML = "<span class="spinner"></span><strong>Starting 3D map…</strong><small>Preparing the 800k Gaussian scene.</small>";
-  const loaderTitle = el.loader.querySelector("strong");
-  const loaderDetail = el.loader.querySelector("small");
+  if (showLoader) el.loader.classList.remove("hidden");
   const dropIn = ensureGaussianCloud();
   if (gaussianAssetPath !== gaussianConfig.path) {
     if (gaussianAssetPath !== null) {
@@ -246,30 +243,15 @@ async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = t
       gaussianAssetPath = null;
     }
     gaussianLoadPromise = dropIn.addSplatScene(`./assets/${gaussianConfig.path}?v=${state.index.version}`, {
-      format: gaussianConfig.format === "ksplat" ? GaussianSplats3D.SceneFormat.KSplat : GaussianSplats3D.SceneFormat.Ply,
+      format: GaussianSplats3D.SceneFormat.Ply,
       splatAlphaRemovalThreshold: 2,
       showLoadingUI: false,
-      progressiveLoad: gaussianConfig.format === "ksplat",
-      onProgress: (percent, label, status) => {
-        if (status === 0) {
-          loaderTitle.textContent = "Downloading 3D map · " + Math.round(percent) + "%";
-          loaderDetail.textContent = "19 MB compressed Gaussian scene";
-        } else if (status === 1) {
-          loaderTitle.textContent = "Preparing 800k splats…";
-          loaderDetail.textContent = "Building the first interactive frame";
-        } else {
-          loaderTitle.textContent = "Rendering scene…";
-          loaderDetail.textContent = "Almost ready";
-        }
-      },
+      progressiveLoad: false,
       position: gaussianConfig.position,
       rotation: gaussianConfig.rotation,
       scale: [1, 1, 1],
     });
-    await Promise.race([
-      gaussianLoadPromise,
-      new Promise((_, reject) => window.setTimeout(() => reject(new Error("Gaussian initialization timed out")), 12000)),
-    ]);
+    await gaussianLoadPromise;
     gaussianAssetPath = gaussianConfig.path;
     gaussianLoadPromise = null;
   } else if (gaussianLoadPromise) {
@@ -295,23 +277,15 @@ async function loadGaussianMap(gaussianConfig, { fitView = false, showLoader = t
 
 async function loadSessionCloud(session, { fitView = false, showLoader = true } = {}) {
   const config = state.index.environments[state.env];
-  let gaussianFallback = false;
   if (config.gaussian) {
-    try {
-      return await loadGaussianMap(config.gaussian, { fitView, showLoader });
-    } catch (error) {
-      console.warn("Gaussian scene unavailable; using point-cloud fallback.", error);
-      gaussianFallback = true;
-      if (gaussianCloud) gaussianCloud.visible = false;
-      el.loader.innerHTML = "<span class="spinner"></span><strong>Opening compatible 3D map…</strong><small>Switching to the fast fallback automatically.</small>";
-    }
+    return loadGaussianMap(config.gaussian, { fitView, showLoader });
   }
-  el.sceneModeLabel.textContent = gaussianFallback ? "Aligned 3D fallback" : "Session-aligned point cloud";
+  el.sceneModeLabel.textContent = "Session-aligned point cloud";
   el.densityMode.disabled = false;
   el.pointSmaller.disabled = false;
   el.pointLarger.disabled = false;
-  const denseConfig = gaussianFallback ? null : state.denseCloud ? config.sessionDenseClouds?.[`s${session}`] : null;
-  const cloudConfig = gaussianFallback ? config.cleanCloud : denseConfig || config.sessionClouds?.[`s${session}`] || config.cleanCloud || config.cloud;
+  const denseConfig = state.denseCloud ? config.sessionDenseClouds?.[`s${session}`] : null;
+  const cloudConfig = denseConfig || config.sessionClouds?.[`s${session}`] || config.cleanCloud || config.cloud;
   const token = ++cloudLoadToken;
   if (showLoader) el.loader.classList.remove("hidden");
   const geometry = await new PLYLoader().loadAsync(
