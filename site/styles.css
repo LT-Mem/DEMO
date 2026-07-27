@@ -288,7 +288,7 @@ h3 { margin-bottom: 0; font-size: 0.92rem; }
 .evidence-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 15px 0 8px; padding-top: 12px; border-top: 1px solid #d7e4ff; }
 .evidence-heading strong { font-size: 0.74rem; }
 .evidence-heading small { color: var(--muted); font-size: 0.62rem; }
-.answer-evidence { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 9px; }
+.answer-evidence { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 180px)); justify-content: start; gap: 9px; }
 .evidence-card { overflow: hidden; padding: 0; border: 1px solid #d8e0ea; border-radius: 10px; background: white; cursor: pointer; text-align: left; transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease; }
 .evidence-card:hover, .evidence-card.active { transform: translateY(-2px); border-color: var(--blue); box-shadow: 0 7px 16px rgba(37,99,235,0.13); }
 .evidence-card img { width: 100%; height: 76px; display: block; object-fit: cover; background: #101827; }
