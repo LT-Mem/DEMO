@@ -556,16 +556,13 @@ function buildQaResult(id, originObjectName, originSession) {
   if (id === "last") {
     const targetSession = originObject.lastObservedSession;
     const row = originObject.sessions[`s${targetSession}`];
-    const observed = Array.from({ length: 10 }, (_, index) => index + 1)
-      .filter((session) => originObject.sessions[`s${session}`].present)
-      .slice(-3);
     return {
-      text: `${originObject.name} was last observed in Session ${targetSession} at [${formatPosition(row.position)}] m (${row.locationToken}). The preceding observations are shown below for temporal context.`,
+      text: `${originObject.name} was last observed in Session ${targetSession} at [${formatPosition(row.position)}] m (${row.locationToken}).`,
       targetObject: originObject.name,
       targetSession,
       objects: [originObject.name],
-      sessions: observed,
-      evidence: observed.map((session) => ({ object: originObject.name, session })),
+      sessions: [targetSession],
+      evidence: [{ object: originObject.name, session: targetSession }],
     };
   }
 
