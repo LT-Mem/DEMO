@@ -25,7 +25,7 @@ const el = Object.fromEntries(
   [
     "viewer", "loader", "cloudStats", "objectSelect", "objectName", "eventBadge",
     "stateValue", "locationValue", "lastObservedValue", "volatilityValue",
-    "confidenceValue", "observationFigure", "observationImage", "observationCaption",
+    "observationFigure", "observationImage", "observationCaption",
     "observedCountValue", "historyList", "sessionRange", "sessionLabel",
     "sessionTicks", "eventTimeline", "questionButtons", "answerText",
     "toggleCloud", "resetView", "pointSmaller", "pointLarger", "densityMode",
@@ -467,11 +467,9 @@ function renderMemoryCard() {
     el.observationImage.src = `./assets/${row.observationImage}`;
     el.observationImage.alt = `${object.name}, Session ${state.session}`;
     el.observationCaption.textContent = `Actual RGB observation · S${state.session} · frame ${row.observationFrame}`;
-    el.confidenceValue.textContent = row.observationConfidence.toFixed(3);
   } else {
     el.observationFigure.classList.add("hidden");
     el.observationImage.removeAttribute("src");
-    el.confidenceValue.textContent = "No observation";
   }
   const v = row.volatility ?? object.finalVolatility;
   el.volatilityValue.textContent = v == null ? "Not recorded" : v.toFixed(3);
@@ -700,8 +698,7 @@ function renderEvidenceCards(items) {
     const title = document.createElement("strong");
     title.textContent = objectName;
     const meta = document.createElement("span");
-    const confidence = row.observationConfidence == null ? "" : ` · conf. ${row.observationConfidence.toFixed(2)}`;
-    meta.textContent = `${label ? row.event : `S${session} · ${row.event}`}${confidence}`;
+    meta.textContent = label ? row.event : `S${session} · ${row.event}`;
     body.append(title, meta);
     card.append(body);
     card.addEventListener("click", () => inspectEvidence(objectName, session));
