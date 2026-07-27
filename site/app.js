@@ -338,10 +338,10 @@ async function renderSemanticMap() {
 
 function markerPositionFor(object, session) {
   const row = object.sessions[`s${session}`];
-  if (row?.present && row.position) return { position: row.position, ghost: false };
+  if (row?.present && row.position) return { position: row.mapPosition || row.position, ghost: false };
   for (let index = session - 1; index >= 1; index -= 1) {
     const prior = object.sessions[`s${index}`];
-    if (prior?.present && prior.position) return { position: prior.position, ghost: true };
+    if (prior?.present && prior.position) return { position: prior.mapPosition || prior.position, ghost: true };
   }
   return null;
 }
@@ -384,7 +384,7 @@ function renderSelectedTrajectory(object) {
   for (let session = 1; session <= 10; session += 1) {
     const row = object.sessions[`s${session}`];
     if (!row?.present || !row.position || row.event === "NONE") continue;
-    const point = new THREE.Vector3().fromArray(row.position);
+    const point = new THREE.Vector3().fromArray(row.mapPosition || row.position);
     point.y = -point.y + 0.18;
     controlPoints.push(point);
   }

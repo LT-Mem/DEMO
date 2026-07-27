@@ -1405,7 +1405,12 @@
           "observationConfidence": 0.951024,
           "observationFrame": 8,
           "objectCloud": "objects/lab-s/trashbin/s1.ply",
-          "objectPointCount": 10430
+          "objectPointCount": 10430,
+          "mapPosition": [
+            0.13571015000343323,
+            0.14390790462493896,
+            1.8981090784072876
+          ]
         },
         "s2": {
           "present": true,
@@ -1421,7 +1426,12 @@
           "observationConfidence": 0.959904,
           "observationFrame": 130,
           "objectCloud": "objects/lab-s/trashbin/s2.ply",
-          "objectPointCount": 6175
+          "objectPointCount": 6175,
+          "mapPosition": [
+            0.35419827699661255,
+            0.28803494572639465,
+            1.7729439735412598
+          ]
         },
         "s3": {
           "present": true,
@@ -1437,7 +1447,12 @@
           "observationConfidence": 0.960271,
           "observationFrame": 89,
           "objectCloud": "objects/lab-s/trashbin/s3.ply",
-          "objectPointCount": 7576
+          "objectPointCount": 7576,
+          "mapPosition": [
+            0.035833362489938736,
+            0.15816046297550201,
+            1.940934181213379
+          ]
         },
         "s4": {
           "present": true,
@@ -1453,7 +1468,12 @@
           "observationConfidence": 0.963677,
           "observationFrame": 8,
           "objectCloud": "objects/lab-s/trashbin/s4.ply",
-          "objectPointCount": 8392
+          "objectPointCount": 8392,
+          "mapPosition": [
+            0.3011123239994049,
+            0.18793122470378876,
+            2.0344409942626953
+          ]
         },
         "s5": {
           "present": true,
@@ -1469,7 +1489,12 @@
           "observationConfidence": 0.952248,
           "observationFrame": 82,
           "objectCloud": "objects/lab-s/trashbin/s5.ply",
-          "objectPointCount": 15106
+          "objectPointCount": 15106,
+          "mapPosition": [
+            1.6271734237670898,
+            0.7248190641403198,
+            0.5773640275001526
+          ]
         },
         "s6": {
           "present": true,
@@ -1485,7 +1510,12 @@
           "observationConfidence": 0.943079,
           "observationFrame": 72,
           "objectCloud": "objects/lab-s/trashbin/s6.ply",
-          "objectPointCount": 16764
+          "objectPointCount": 16764,
+          "mapPosition": [
+            1.6429228782653809,
+            0.8181914687156677,
+            0.6782582402229309
+          ]
         },
         "s7": {
           "present": true,
@@ -1501,7 +1531,12 @@
           "observationConfidence": 0.934937,
           "observationFrame": 55,
           "objectCloud": "objects/lab-s/trashbin/s7.ply",
-          "objectPointCount": 3893
+          "objectPointCount": 3893,
+          "mapPosition": [
+            1.555145263671875,
+            0.9045497179031372,
+            0.7339245676994324
+          ]
         },
         "s8": {
           "present": true,
@@ -1517,7 +1552,12 @@
           "observationConfidence": 0.955557,
           "observationFrame": 2,
           "objectCloud": "objects/lab-s/trashbin/s8.ply",
-          "objectPointCount": 10084
+          "objectPointCount": 10084,
+          "mapPosition": [
+            0.16603291034698486,
+            0.3274928629398346,
+            2.060459613800049
+          ]
         },
         "s9": {
           "present": true,
@@ -1533,7 +1573,12 @@
           "observationConfidence": 0.964879,
           "observationFrame": 113,
           "objectCloud": "objects/lab-s/trashbin/s9.ply",
-          "objectPointCount": 5254
+          "objectPointCount": 5254,
+          "mapPosition": [
+            0.04679759219288826,
+            0.2671254575252533,
+            1.3459445238113403
+          ]
         },
         "s10": {
           "present": true,
@@ -1549,7 +1594,12 @@
           "observationConfidence": 0.970537,
           "observationFrame": 61,
           "objectCloud": "objects/lab-s/trashbin/s10.ply",
-          "objectPointCount": 3242
+          "objectPointCount": 3242,
+          "mapPosition": [
+            0.0044113025069236755,
+            0.32549676299095154,
+            1.9539140462875366
+          ]
         }
       },
       "regions": [
