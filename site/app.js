@@ -474,7 +474,7 @@ function renderMemoryCard() {
     el.confidenceValue.textContent = "No observation";
   }
   const v = row.volatility ?? object.finalVolatility;
-  el.volatilityValue.textContent = v == null ? "Not recorded" : `${v.toFixed(3)} · ${v >= 0.9 ? "High" : v >= 0.6 ? "Medium" : "Low"}`;
+  el.volatilityValue.textContent = v == null ? "Not recorded" : v.toFixed(3);
   el.observedCountValue.textContent = `${object.observedSessions} / 10 sessions`;
 
   el.historyList.innerHTML = "";
