@@ -4,12 +4,17 @@
 from __future__ import annotations
 
 import argparse
-import getpass
+import base64
 import json
 import os
+import shlex
+import subprocess
+import tempfile
+import time
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import quote, urlencode
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
@@ -21,6 +26,7 @@ MEMORY_FILES = {
     "Lab-L": SITE_DIR / "assets" / "lab-l-memory.json",
 }
 ALLOWED_MODELS = {"gemini-3.8-flash", "gemini-3.5-flash", "gemini-2.5-flash"}
+OAUTH_SCOPE = "https://www.googleapis.com/auth/cloud-platform"
 
 
 def compact_memory(environment: str) -> dict:
@@ -55,6 +61,85 @@ def compact_memory(environment: str) -> dict:
 MEMORIES = {environment: compact_memory(environment) for environment in MEMORY_FILES}
 
 
+def base64url(data: bytes) -> str:
+    return base64.urlsafe_b64encode(data).rstrip(b"=").decode("ascii")
+
+
+class VertexCredentials:
+    def __init__(self, path: Path):
+        self.path = path
+        self.info = json.loads(path.read_text(encoding="utf-8"))
+        required = ("project_id", "private_key", "client_email")
+        missing = [field for field in required if not self.info.get(field)]
+        if self.info.get("type") != "service_account" or missing:
+            fields = ", ".join(missing) or "type=service_account"
+            raise ValueError(f"Invalid service-account JSON; check {fields}.")
+        self.project_id = self.info["project_id"]
+        self.token_uri = self.info.get("token_uri", "https://oauth2.googleapis.com/token")
+        self.access_token = ""
+        self.expires_at = 0.0
+
+    def token(self) -> str:
+        if self.access_token and time.time() < self.expires_at - 60:
+            return self.access_token
+        assertion = self.signed_assertion()
+        body = urlencode(
+            {
+                "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+                "assertion": assertion,
+            }
+        ).encode("ascii")
+        request = Request(
+            self.token_uri,
+            data=body,
+            method="POST",
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
+        )
+        with urlopen(request, timeout=30) as response:
+            payload = json.load(response)
+        self.access_token = payload["access_token"]
+        self.expires_at = time.time() + int(payload.get("expires_in", 3600))
+        return self.access_token
+
+    def signed_assertion(self) -> str:
+        now = int(time.time())
+        header = {"alg": "RS256", "typ": "JWT"}
+        if self.info.get("private_key_id"):
+            header["kid"] = self.info["private_key_id"]
+        claims = {
+            "iss": self.info["client_email"],
+            "scope": OAUTH_SCOPE,
+            "aud": self.token_uri,
+            "iat": now,
+            "exp": now + 3600,
+        }
+        unsigned = ".".join(
+            base64url(json.dumps(part, separators=(",", ":")).encode("utf-8"))
+            for part in (header, claims)
+        ).encode("ascii")
+        key_path = None
+        try:
+            with tempfile.NamedTemporaryFile("w", encoding="utf-8", delete=False) as key_file:
+                key_file.write(self.info["private_key"])
+                key_path = key_file.name
+            os.chmod(key_path, 0o600)
+            result = subprocess.run(
+                ["openssl", "dgst", "-sha256", "-sign", key_path],
+                input=unsigned,
+                capture_output=True,
+                check=True,
+            )
+        except FileNotFoundError as error:
+            raise RuntimeError("OpenSSL is required to use the service-account key.") from error
+        except subprocess.CalledProcessError as error:
+            detail = error.stderr.decode("utf-8", errors="replace").strip()
+            raise RuntimeError(f"Could not sign with the service-account key: {detail}") from error
+        finally:
+            if key_path:
+                Path(key_path).unlink(missing_ok=True)
+        return f"{unsigned.decode('ascii')}.{base64url(result.stdout)}"
+
+
 def build_prompt(environment: str, question: str) -> str:
     memory = json.dumps(MEMORIES[environment], ensure_ascii=False, separators=(",", ":"))
     return (
@@ -71,7 +156,7 @@ def build_prompt(environment: str, question: str) -> str:
 
 
 class DemoHandler(SimpleHTTPRequestHandler):
-    api_key = ""
+    credentials: VertexCredentials
 
     def do_POST(self) -> None:
         if self.path != "/api/ask":
@@ -108,7 +193,12 @@ class DemoHandler(SimpleHTTPRequestHandler):
             self.send_json(500, {"error": f"Live QA failed: {error}"})
 
     def ask_gemini(self, model: str, prompt: str) -> str:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+        project = quote(self.credentials.project_id, safe="")
+        model_id = quote(model, safe="")
+        url = (
+            "https://aiplatform.googleapis.com/v1/"
+            f"projects/{project}/locations/global/publishers/google/models/{model_id}:generateContent"
+        )
         body = json.dumps(
             {
                 "contents": [{"role": "user", "parts": [{"text": prompt}]}],
@@ -119,7 +209,10 @@ class DemoHandler(SimpleHTTPRequestHandler):
             url,
             data=body,
             method="POST",
-            headers={"Content-Type": "application/json", "x-goog-api-key": self.api_key},
+            headers={
+                "Authorization": f"Bearer {self.credentials.token()}",
+                "Content-Type": "application/json",
+            },
         )
         with urlopen(request, timeout=45) as response:
             result = json.load(response)
@@ -144,11 +237,25 @@ class DemoHandler(SimpleHTTPRequestHandler):
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--port", type=int, default=8080)
+    parser.add_argument("--credentials", type=Path, help="Path to a Google service-account JSON file")
     args = parser.parse_args()
-    api_key = os.environ.get("GEMINI_API_KEY") or getpass.getpass("Gemini API key (hidden): ")
-    if not api_key.strip():
-        raise SystemExit("A Gemini API key is required.")
-    DemoHandler.api_key = api_key.strip()
+    credentials_path = args.credentials
+    if credentials_path is None:
+        configured = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
+        if configured:
+            credentials_path = Path(configured)
+        else:
+            entered = input("Service account JSON path: ").strip()
+            parts = shlex.split(entered)
+            if len(parts) != 1:
+                raise SystemExit("Enter one service-account JSON file path.")
+            credentials_path = Path(parts[0]).expanduser()
+    if not credentials_path.is_file():
+        raise SystemExit(f"Service-account JSON was not found: {credentials_path}")
+    try:
+        DemoHandler.credentials = VertexCredentials(credentials_path)
+    except (OSError, json.JSONDecodeError, ValueError) as error:
+        raise SystemExit(str(error)) from error
     handler = partial(DemoHandler, directory=SITE_DIR)
     server = ThreadingHTTPServer(("127.0.0.1", args.port), handler)
     print(f"LT-Mem live demo: http://127.0.0.1:{args.port}")

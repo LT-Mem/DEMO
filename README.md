@@ -4,7 +4,7 @@ Interactive LT-Mem 3D Gaussian-splat demo.
 
 Public demo: https://lt-mem.github.io/DEMO/
 
-The public page uses deterministic, evidence-linked questions and does not contain a Gemini API key.
+The public page uses deterministic, evidence-linked questions and does not contain Google credentials.
 
 For the poster-session Live Gemini panel, run:
 
@@ -12,4 +12,4 @@ For the poster-session Live Gemini panel, run:
 python3 tools/serve_live_demo.py
 ```
 
-Enter the API key at the hidden terminal prompt, then open `http://127.0.0.1:8080`. The server listens only on this computer, keeps the key in memory, and enables the Live QA panel only on the local page.
+Enter the path to a complete Google service-account JSON file, then open `http://127.0.0.1:8080`. The server listens only on this computer, reads the credentials locally, and enables the Live QA panel only on the local page. The service account needs permission to call Vertex AI in its project, and the Vertex AI API must be enabled.
