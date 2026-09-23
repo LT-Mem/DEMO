@@ -7,14 +7,7 @@
     <title>LT-Mem Demo</title>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" href="./styles.css?v=52" />
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "./vendor-preview/three/build/three.module.js",
-          "three/addons/": "./vendor-preview/three/examples/jsm/"
-        }
-      }
-    </script>
+
   </head>
   <body>
     <main class="page-shell">
@@ -202,6 +195,14 @@
       </li>
     </template>
 
-    <script type="module" src="./app.js?v=52"></script>
+    <script src="./live-qa.js?v=53"></script>
+    <script type="module">
+      import('./app.js?v=53').catch(error => {
+        const loader = document.getElementById('loader');
+        loader.textContent = '3D scene could not start: ' + error.message + '. Live QA is available below.';
+        loader.classList.remove('hidden');
+        console.error(error);
+      });
+    </script>
   </body>
 </html>

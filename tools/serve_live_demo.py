@@ -156,6 +156,7 @@ def build_prompt(environment: str, question: str) -> str:
 
 
 class DemoHandler(SimpleHTTPRequestHandler):
+    extensions_map = {**SimpleHTTPRequestHandler.extensions_map, ".js": "text/javascript"}
     credentials: VertexCredentials
 
     def do_POST(self) -> None:

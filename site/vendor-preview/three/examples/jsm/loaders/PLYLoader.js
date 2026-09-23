@@ -4,7 +4,7 @@ import {
 	Float32BufferAttribute,
 	Loader,
 	Color
-} from 'three';
+} from '../../../build/three.module.js';
 
 /**
  * Description: A THREE loader for PLY ASCII files (known as the Polygon
