@@ -84,7 +84,7 @@ h3 { margin-bottom: 0; font-size: 0.92rem; }
   gap: 18px;
 }
 
-.viewer-card, .memory-card, .timeline-card, .qa-card {
+.viewer-card, .memory-card, .timeline-card, .qa-card, .live-qa-card {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -215,7 +215,7 @@ h3 { margin-bottom: 0; font-size: 0.92rem; }
 .history-event { color: var(--blue); font-weight: 850; }
 .history-position { overflow: hidden; color: var(--muted); text-overflow: ellipsis; white-space: nowrap; text-align: right; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 
-.timeline-card, .qa-card { margin-top: 18px; padding: 22px 24px; }
+.timeline-card, .qa-card, .live-qa-card { margin-top: 18px; padding: 22px 24px; }
 .section-title { display: flex; align-items: end; justify-content: space-between; gap: 15px; }
 .section-title > strong { color: var(--blue); }
 #sessionRange { width: 100%; margin: 25px 0 9px; accent-color: var(--blue); }
@@ -246,10 +246,134 @@ h3 { margin-bottom: 0; font-size: 0.92rem; }
   .viewer { min-height: 420px; }
   .viewer-toolbar { align-items: flex-start; flex-direction: column; padding-block: 12px; }
   .viewer-actions { width: 100%; }
-  .memory-card, .timeline-card, .qa-card { padding: 17px; }
+  .memory-card, .timeline-card, .qa-card, .live-qa-card { padding: 17px; }
   .section-title { align-items: flex-start; flex-direction: column; }
   .history-list li { grid-template-columns: 30px 72px 1fr; }
   .event-timeline span { font-size: 0; width: 7px; height: 7px; padding: 0; border-radius: 50%; }
+}
+
+/* Live QA uses the same saved memory as the visual demo and calls Gemini only for the answer. */
+.live-qa-card {
+  position: relative;
+  background:
+    radial-gradient(circle at 95% 0, rgba(37, 99, 235, 0.09), transparent 25rem),
+    var(--surface);
+}
+.live-qa-title { align-items: center; }
+.live-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid #b8e3d9;
+  border-radius: 999px;
+  color: #176b5c;
+  background: #eefaf7;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+.live-label i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 4px rgba(15, 159, 148, 0.12);
+}
+.live-qa-settings {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.45fr) minmax(280px, 1.55fr);
+  gap: 12px;
+  align-items: end;
+  margin-top: 20px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #f8fafc;
+}
+.live-qa-settings label { display: grid; gap: 6px; }
+.live-qa-settings label > span { color: var(--muted); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+.live-qa-settings input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 11px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--ink);
+  background: white;
+  outline: none;
+}
+.live-qa-settings input:focus, .live-composer textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.09); }
+.live-qa-settings p { margin: 0 0 9px; color: var(--muted); font-size: 0.68rem; line-height: 1.45; }
+.live-qa-grid { display: grid; grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.7fr); gap: 18px; margin-top: 18px; }
+.qa-column-label b { color: var(--ink); }
+.live-suggestions { display: grid; gap: 8px; margin-top: 10px; }
+.live-suggestions button {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  background: white;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+.live-suggestions button::before { content: "→"; display: inline-block; width: 20px; color: var(--blue); }
+.live-suggestions button:hover { color: var(--blue); border-color: var(--blue); background: #f5f8ff; }
+.live-answer-panel { min-width: 0; padding: 16px; border: 1px solid #d7e4ff; border-radius: 13px; background: #f8faff; }
+.live-composer { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: end; }
+.live-composer textarea {
+  width: 100%;
+  min-height: 74px;
+  max-height: 150px;
+  resize: vertical;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  background: white;
+  outline: none;
+  line-height: 1.45;
+}
+.live-composer button {
+  min-height: 44px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  background: var(--navy);
+  cursor: pointer;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+.live-composer button:hover { background: var(--blue); }
+.live-composer button:disabled { opacity: 0.5; cursor: wait; }
+.live-composer button span { margin-left: 6px; }
+.live-answer-heading { display: flex; justify-content: space-between; gap: 12px; margin-top: 15px; padding-top: 13px; border-top: 1px solid #d7e4ff; }
+.live-answer-heading strong { font-size: 0.74rem; }
+.live-answer-heading span { color: #35616d; font-size: 0.65rem; font-weight: 800; }
+.live-answer-heading span.thinking { color: #8a5b04; }
+.live-answer-heading span.error { color: #b93838; }
+.live-answer { min-height: 64px; margin-top: 8px; color: #24364e; font-size: 0.84rem; line-height: 1.58; white-space: pre-wrap; }
+.live-thinking { display: inline-flex; gap: 5px; padding-top: 6px; }
+.live-thinking i { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); animation: live-pulse 1s infinite; }
+.live-thinking i:nth-child(2) { animation-delay: 0.15s; }
+.live-thinking i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes live-pulse { 0%, 70%, 100% { opacity: 0.25; transform: translateY(0); } 35% { opacity: 1; transform: translateY(-3px); } }
+
+@media (max-width: 900px) {
+  .live-qa-settings { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .live-qa-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  .live-qa-settings { grid-template-columns: 1fr; }
+  .live-composer { grid-template-columns: 1fr; }
+  .live-composer button { min-height: 46px; }
 }
 
 /* Evidence-backed QA interaction */

@@ -30,6 +30,8 @@ const el = Object.fromEntries(
     "sessionTicks", "eventTimeline", "questionButtons", "answerText",
     "toggleCloud", "resetView", "pointSmaller", "pointLarger", "densityMode",
     "answerEvidence", "answerStatus", "mapEvidenceCue", "sceneModeLabel",
+    "liveQaCard", "liveModel", "liveEnvironment", "liveSuggestions",
+    "liveQuestion", "liveAsk", "liveStatus", "liveAnswer",
   ].map((id) => [id, document.getElementById(id)])
 );
 
@@ -64,6 +66,9 @@ let sessionLoadTimer = null;
 let fittedView = null;
 let clickableMarkers = [];
 let answerTimer = null;
+let liveRequestController = null;
+const LOCAL_LIVE_QA = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+if (LOCAL_LIVE_QA) el.liveQaCard.hidden = false;
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
@@ -158,6 +163,7 @@ function eventClass(event) {
 
 async function loadEnvironment(env) {
   clearQaEvidence();
+  resetLiveQa();
   if (sessionLoadTimer) window.clearTimeout(sessionLoadTimer);
   sessionLoadTimer = null;
   state.env = env;
@@ -184,6 +190,7 @@ async function loadEnvironment(env) {
   populateObjectSelect();
   renderSessionTicks();
   renderAll();
+  renderLiveSuggestions();
   el.loader.classList.add("hidden");
 }
 
@@ -773,6 +780,90 @@ function selectObject(name, { preserveEvidence = false } = {}) {
   renderQuestions();
 }
 
+const LIVE_QUESTIONS = {
+  "Lab-S": [
+    "Which object moved most frequently?",
+    "What happened to the blue totebag after it disappeared?",
+    "Which objects never moved?",
+    "Where was the robot dog last observed?",
+  ],
+  "Lab-L": [
+    "Which object moved most frequently?",
+    "When did the green chair disappear and reappear?",
+    "Which objects never moved?",
+    "Where was the robot dog last observed?",
+  ],
+};
+
+function resetLiveQa() {
+  liveRequestController?.abort();
+  liveRequestController = null;
+  if (!el.liveAnswer) return;
+  el.liveStatus.textContent = "Ready";
+  el.liveStatus.classList.remove("thinking", "error");
+  el.liveAnswer.textContent = "Choose a suggested question or type your own. Gemini will answer from the saved 10-session memory currently shown above.";
+}
+
+function renderLiveSuggestions() {
+  if (!state.memory || !el.liveSuggestions) return;
+  el.liveEnvironment.textContent = state.env;
+  el.liveSuggestions.innerHTML = "";
+  LIVE_QUESTIONS[state.env].forEach((question) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = question;
+    button.addEventListener("click", () => {
+      el.liveQuestion.value = question;
+      el.liveQuestion.focus();
+    });
+    el.liveSuggestions.append(button);
+  });
+}
+
+async function askGemini() {
+  const question = el.liveQuestion.value.trim();
+  const model = el.liveModel.value.trim();
+  if (!question) {
+    el.liveQuestion.focus();
+    return;
+  }
+  if (!model) {
+    el.liveModel.focus();
+    return;
+  }
+  liveRequestController?.abort();
+  liveRequestController = new AbortController();
+  el.liveAsk.disabled = true;
+  el.liveStatus.textContent = `Asking ${model}…`;
+  el.liveStatus.className = "thinking";
+  el.liveAnswer.innerHTML = '<span class="live-thinking"><i></i><i></i><i></i></span>';
+  const started = performance.now();
+
+  try {
+    const response = await fetch("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ environment: state.env, model, question }),
+      signal: liveRequestController.signal,
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(payload.error || `Local API returned ${response.status}`);
+    const answer = payload.answer?.trim();
+    if (!answer) throw new Error("Gemini returned no answer.");
+    el.liveAnswer.textContent = answer;
+    el.liveStatus.textContent = `${model} · ${((performance.now() - started) / 1000).toFixed(1)} s`;
+    el.liveStatus.className = "";
+  } catch (error) {
+    if (error.name === "AbortError") return;
+    el.liveAnswer.textContent = `Could not reach Gemini: ${error.message}`;
+    el.liveStatus.textContent = "Request failed";
+    el.liveStatus.className = "error";
+  } finally {
+    liveRequestController = null;
+    el.liveAsk.disabled = false;
+  }
+}
+
 renderer.domElement.addEventListener("pointerdown", (event) => {
   const rect = renderer.domElement.getBoundingClientRect();
   pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
@@ -813,6 +904,13 @@ el.resetView.addEventListener("click", () => {
   controls.target.copy(fittedView.center);
   camera.position.copy(fittedView.position);
   controls.update();
+});
+el.liveAsk.addEventListener("click", askGemini);
+el.liveQuestion.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault();
+    askGemini();
+  }
 });
 
 function showError(error) {

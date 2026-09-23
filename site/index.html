@@ -6,7 +6,7 @@
     <meta name="description" content="Interactive LT-Mem 3D memory demo" />
     <title>LT-Mem Demo</title>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link rel="stylesheet" href="./styles.css?v=51" />
+    <link rel="stylesheet" href="./styles.css?v=52" />
     <script type="importmap">
       {
         "imports": {
@@ -151,6 +151,47 @@
           </div>
         </div>
       </section>
+
+      <section id="liveQaCard" class="live-qa-card" hidden>
+        <div class="section-title live-qa-title">
+          <div>
+            <p class="eyebrow">Poster session · live Gemini call</p>
+            <h2>Ask LT-Mem in your own words</h2>
+          </div>
+          <span class="live-label"><i></i> Saved memory ready</span>
+        </div>
+
+        <div class="live-qa-settings">
+          <label>
+            <span>Gemini model</span>
+            <input id="liveModel" list="liveModels" value="gemini-3.5-flash" autocomplete="off" />
+            <datalist id="liveModels">
+              <option value="gemini-3.8-flash"></option>
+              <option value="gemini-3.5-flash"></option>
+              <option value="gemini-2.5-flash"></option>
+            </datalist>
+          </label>
+          <p>The API key stays in the local server process. It is never sent to this page or committed to GitHub.</p>
+        </div>
+
+        <div class="live-qa-grid">
+          <div>
+            <span class="qa-column-label">Suggested questions for <b id="liveEnvironment">Lab-S</b></span>
+            <div id="liveSuggestions" class="live-suggestions"></div>
+          </div>
+          <div class="live-answer-panel">
+            <div class="live-composer">
+              <textarea id="liveQuestion" rows="2" placeholder="Ask about objects, sessions, locations, or event frequency…"></textarea>
+              <button id="liveAsk" type="button">Ask Gemini <span>→</span></button>
+            </div>
+            <div class="live-answer-heading">
+              <strong>Live answer</strong>
+              <span id="liveStatus">Ready</span>
+            </div>
+            <div id="liveAnswer" class="live-answer" aria-live="polite">Choose a suggested question or type your own. Gemini will answer from the saved 10-session memory currently shown above.</div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <template id="historyItemTemplate">
@@ -161,6 +202,6 @@
       </li>
     </template>
 
-    <script type="module" src="./app.js?v=51"></script>
+    <script type="module" src="./app.js?v=52"></script>
   </body>
 </html>
